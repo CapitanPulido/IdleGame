@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float MaxHealth;
     public float MinHealth;
     public float ActualHealth;
+    public float Daño;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ActualHealth == 0)
+        if (ActualHealth <= 0)
         {
             Destroy(gameObject);
         }
@@ -26,7 +27,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Proyectil"))
         {
-            ActualHealth -= 1;
+            ActualHealth -= Daño;
         }
 
     }
