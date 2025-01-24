@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     public float MinHealth;
     public float ActualHealth;
     public float Daño;
+
+    public int experiencePoints = 50; // Experiencia otorgada por este enemigo
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,4 +34,5 @@ public class Enemy : MonoBehaviour
         }
 
     }
+
 }
