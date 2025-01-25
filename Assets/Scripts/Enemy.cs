@@ -30,9 +30,25 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Proyectil"))
         {
-            ActualHealth -= Daño;
+            TakeDamage(5);
         }
 
     }
-
+    public void TakeDamage(float amount)
+    {
+        ActualHealth -= amount;
+        if (ActualHealth <= 0)
+        {
+            Die();
+        }
+    }
+    private void Die()
+    {
+        WaveManager waveManager = FindObjectOfType<WaveManager>();
+        if (waveManager != null)
+        {
+            waveManager.OnEnemyDefeated();
+        }
+        Destroy(gameObject);
+    }
 }
