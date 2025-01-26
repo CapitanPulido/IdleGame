@@ -60,6 +60,31 @@ public class ImprovementManager : MonoBehaviour
         currentFamiliar = Instantiate(familiarPrefab, transform.position, Quaternion.identity);
         Debug.Log("Familiar invocado");
     }
+
+    public void ShowImprovementsForLevel(int level)
+    {
+        // Mostrar mejoras solo si el nivel es múltiplo de 5
+        if (level % 5 == 0)
+        {
+            // Generar las opciones de mejora aquí
+            List<Improvement> availableImprovementsForLevel = availableImprovements.FindAll(improvement => improvement.unlockLevel <= level);
+
+            var options = new List<Improvement>();
+
+            // Aquí puedes definir cuántas mejoras mostrar (por ejemplo, 3 opciones)
+            while (options.Count < 3 && availableImprovementsForLevel.Count > 0)
+            {
+                int randomIndex = Random.Range(0, availableImprovementsForLevel.Count);
+                options.Add(availableImprovementsForLevel[randomIndex]);
+                availableImprovementsForLevel.RemoveAt(randomIndex);
+            }
+
+            // Mostrar las opciones en la interfaz
+            UIManager uiManager = FindObjectOfType<UIManager>();
+            uiManager.ShowImprovementOptions(options);
+        }
+    }
+
 }
 
 [System.Serializable]

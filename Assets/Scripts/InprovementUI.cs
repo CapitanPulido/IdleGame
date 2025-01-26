@@ -4,28 +4,26 @@ using TMPro;
 
 public class ImprovementUI : MonoBehaviour
 {
-    
-
     public GameObject improvementPanel;        // Panel que contiene la interfaz de mejoras
     public ImprovementOption[] options;        // Lista de opciones de mejora
     private System.Action<int> onImprovementSelected; // Callback para procesar la mejora seleccionada
 
-    public void ShowImprovements(string[] names, string[] descriptions, Sprite[] icons, System.Action<int> callback)
+    public void ShowImprovements(string[] names, string[] descriptions, Texture2D[] icons, System.Action<int> callback)
     {
         // Activar el panel de mejoras
         improvementPanel.SetActive(true);
         onImprovementSelected = callback;
 
-        // Configurar los textos, sprites y botones
+        // Configurar los textos, texturas y botones
         for (int i = 0; i < options.Length; i++)
         {
             if (i < names.Length)
             {
-                options[i].improvementName.text = names[i];
-                options[i].improvementDescription.text = descriptions[i];
-                options[i].improvementIcon.sprite = icons[i];
+                // Configurar textura del ícono si existe
+                options[i].improvementIcon.texture = icons[i];
                 options[i].improvementIcon.gameObject.SetActive(true);
 
+                // Activar el botón y configurar el evento
                 options[i].improvementButton.gameObject.SetActive(true);
                 int index = i; // Necesario para evitar problemas de referencias en closures
                 options[i].improvementButton.onClick.RemoveAllListeners();
@@ -34,8 +32,6 @@ public class ImprovementUI : MonoBehaviour
             else
             {
                 // Ocultar opciones sobrantes
-                options[i].improvementName.text = "";
-                options[i].improvementDescription.text = "";
                 options[i].improvementIcon.gameObject.SetActive(false);
                 options[i].improvementButton.gameObject.SetActive(false);
             }
@@ -58,8 +54,6 @@ public class ImprovementUI : MonoBehaviour
 [System.Serializable]
 public class ImprovementOption
 {
-    public TMP_Text improvementName;       // Nombre de la mejora
-    public TMP_Text improvementDescription; // Descripción de la mejora
-    public Image improvementIcon;          // Icono de la mejora
-    public Button improvementButton;       // Botón para seleccionar la mejora
+    public RawImage improvementIcon;          // Icono de la mejora (RawImage)
+    public Button improvementButton;          // Botón para seleccionar la mejora
 }

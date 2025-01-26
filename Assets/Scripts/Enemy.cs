@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float MinHealth;
     public float ActualHealth;
     public float Daño;
+    public VidaTorreta VT;
 
     public int experiencePoints = 50; // Experiencia otorgada por este enemigo
 
@@ -36,11 +37,14 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+
+        VT.AddExperience(5);
         ActualHealth -= amount;
         if (ActualHealth <= 0)
         {
             Die();
         }
+        Debug.Log("+xp");
     }
     private void Die()
     {
