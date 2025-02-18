@@ -25,7 +25,7 @@ public class Mejoras : MonoBehaviour
     {
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
-        Torreta.MejoraVelocidad();
+        Torreta.MejoraVelocidad(0.25f);
         
 
     }

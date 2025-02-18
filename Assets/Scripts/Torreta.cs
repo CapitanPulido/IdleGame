@@ -7,7 +7,8 @@ public class Torreta : MonoBehaviour
     public GameObject proyectilPrefab; // Prefab del proyectil
     public float rango = 5f; // Rango de la torreta
     public float velocidadRotacion = 5f; // Velocidad de rotación
-    public float tiempoEntreDisparos; // Tiempo entre disparos
+    public float tiempoEntreDisparos = 1f; // Tiempo inicial entre disparos
+    public float DañoHaciaEnemigos;
 
     private float tiempoDisparoRestante = 0f;
 
@@ -29,9 +30,10 @@ public class Torreta : MonoBehaviour
             }
         }
 
+        // Presiona Escape para mejorar la velocidad de disparo
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            MejoraVelocidad();
+            MejoraVelocidad(25f); // Disminuye el tiempo entre disparos un 25%
         }
     }
 
@@ -50,7 +52,6 @@ public class Torreta : MonoBehaviour
                 enemigoCercano = enemigo;
             }
         }
-
         return enemigoCercano;
     }
 
@@ -75,10 +76,27 @@ public class Torreta : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, rango);
     }
 
-    public void MejoraVelocidad()
+    public void MejoraVelocidad(float porcentaje)
     {
-        Debug.Log("mejora");
-        tiempoEntreDisparos -= Mathf.RoundToInt(tiempoEntreDisparos * 0.25f);
+        // Disminuye el tiempo entre disparos de manera porcentual
+        float reduccion = tiempoEntreDisparos * (porcentaje / 100f);
+        tiempoEntreDisparos -= reduccion;
+
+        // Asegura un tiempo mínimo para evitar disparos instantáneos
+        if (tiempoEntreDisparos < 0.1f)
+        {
+            tiempoEntreDisparos = 0.1f;
+        }
+
+        Debug.Log("Nueva velocidad de disparo: " + tiempoEntreDisparos);
     }
 
+    public void MejoraDaño(float porcentaje)
+    {
+        // Disminuye el tiempo entre disparos de manera porcentual
+        float Aumento = tiempoEntreDisparos * (porcentaje / 100f);
+        DañoHaciaEnemigos += Aumento;
+
+        Debug.Log("Nueva velocidad de disparo: " + tiempoEntreDisparos);
+    }
 }
