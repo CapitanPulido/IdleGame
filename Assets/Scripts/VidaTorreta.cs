@@ -10,7 +10,7 @@ public class VidaTorreta : MonoBehaviour
     public float MinHealth = 0f;
 
     public int currentLevel = 1;
-    public int currentExperience = 0;
+    public float currentExperience = 0;
     public int experienceToNextLevel = 100;
 
     public Slider Xp;
@@ -20,9 +20,12 @@ public class VidaTorreta : MonoBehaviour
     public static event LevelUpAction OnLevelUp;
 
     private int initialLevel;
-    private int initialExperience;
+    private float initialExperience;
     private int initialExperienceToNextLevel;
     private float initialHealth;
+    public bool ObtXp = true;
+
+    public GameObject ElegirMejora;
 
     void Start()
     {
@@ -35,6 +38,7 @@ public class VidaTorreta : MonoBehaviour
         // Inicializar los valores
         ResetStats();
         Vida.maxValue = MaxHealth; Vida.minValue = MinHealth;
+        
     }
 
     void Update()
@@ -43,39 +47,58 @@ public class VidaTorreta : MonoBehaviour
         //Xp.value = Mathf.Lerp(Xp.value, currentExperience, Time.deltaTime * 10f);
         Xp.value = currentExperience;
         Vida.value = CurrentHealth;
-    }
-
-    public void AddExperience(int amount)
-    {
-        currentExperience += amount;
-        CheckLevelUp();
-    }
-
-    void CheckLevelUp()
-    {
-        while (currentExperience >= experienceToNextLevel)
+       if( ObtXp == true ) 
         {
-            currentExperience -= experienceToNextLevel;
-            currentLevel++;
-            experienceToNextLevel += Mathf.RoundToInt(experienceToNextLevel * 0.25f);
+            currentExperience += (5 * Time.deltaTime);
+        }
 
-            // Recuperar 20% de salud al subir de nivel
-            CurrentHealth = Mathf.Min(CurrentHealth + (MaxHealth * 0.2f), MaxHealth);
-
-            // Notificar nivel nuevo
-            OnLevelUp?.Invoke(currentLevel);
-
-            // Comprobar si es el nivel de mejora (cada 5 niveles)
-            if (currentLevel % 5 == 0)
-            {
-                // Llamar al método de mostrar mejoras del ImprovementManager
-                ImprovementManager improvementManager = FindObjectOfType<ImprovementManager>();
-                improvementManager.ShowImprovementsForLevel(currentLevel);
-            }
-
-            Xp.maxValue = experienceToNextLevel; // Actualizar el máximo del slider
+        if(currentExperience >= 100)
+        {
+            ObtXp = false;
+            currentExperience = 0;
+            Xp.value = 0;
+            currentLevel += 1;
+            
+            ElegirMejora.SetActive(true);   
         }
     }
+
+    public void ActiveObtXp()
+    {
+        ObtXp = true;
+    }
+
+    //public void AddExperience(int amount)
+    //{
+    //    currentExperience += amount;
+    //    CheckLevelUp();
+    //}
+
+    //void CheckLevelUp()
+    //{
+    //    while (currentExperience >= experienceToNextLevel)
+    //    {
+    //        currentExperience -= experienceToNextLevel;
+    //        currentLevel++;
+    //        experienceToNextLevel += Mathf.RoundToInt(experienceToNextLevel * 0.25f);
+
+    //        //// Recuperar 20% de salud al subir de nivel
+    //        //CurrentHealth = Mathf.Min(CurrentHealth + (MaxHealth * 0.2f), MaxHealth);
+
+    //        // Notificar nivel nuevo
+    //        OnLevelUp?.Invoke(currentLevel);
+
+    //        // Comprobar si es el nivel de mejora (cada 5 niveles)
+    //        if (currentLevel % 5 == 0)
+    //        {
+    //            // Llamar al método de mostrar mejoras del ImprovementManager
+    //            ImprovementManager improvementManager = FindObjectOfType<ImprovementManager>();
+    //            improvementManager.ShowImprovementsForLevel(currentLevel);
+    //        }
+
+    //        Xp.maxValue = experienceToNextLevel; // Actualizar el máximo del slider
+    //    }
+    //}
 
 
     public void TakeDamage(float damage)
@@ -127,5 +150,7 @@ public class VidaTorreta : MonoBehaviour
             CurrentHealth -= 5;
         }
     }
+
+    
 }
 

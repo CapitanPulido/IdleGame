@@ -7,7 +7,7 @@ public class Torreta : MonoBehaviour
     public GameObject proyectilPrefab; // Prefab del proyectil
     public float rango = 5f; // Rango de la torreta
     public float velocidadRotacion = 5f; // Velocidad de rotación
-    public float tiempoEntreDisparos = 1f; // Tiempo entre disparos
+    public float tiempoEntreDisparos; // Tiempo entre disparos
 
     private float tiempoDisparoRestante = 0f;
 
@@ -27,6 +27,11 @@ public class Torreta : MonoBehaviour
                 Disparar();
                 tiempoDisparoRestante = tiempoEntreDisparos;
             }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            MejoraVelocidad();
         }
     }
 
@@ -69,4 +74,11 @@ public class Torreta : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, rango);
     }
+
+    public void MejoraVelocidad()
+    {
+        Debug.Log("mejora");
+        tiempoEntreDisparos -= Mathf.RoundToInt(tiempoEntreDisparos * 0.25f);
+    }
+
 }

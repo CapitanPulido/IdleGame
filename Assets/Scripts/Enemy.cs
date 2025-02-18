@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
 
-        VT.AddExperience(5);
+        //VT.AddExperience(5);
         ActualHealth -= amount;
         if (ActualHealth <= 0)
         {
