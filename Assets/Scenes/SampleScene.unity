@@ -2801,10 +2801,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f9cb0450e32654d947db127ccee4e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fastEnemies: []
-  mediumEnemies: []
-  slowEnemies: []
-  bosses: []
+  fastEnemies:
+  - {fileID: 1633913536532447706, guid: 8e1dc71e87a9f1c4db2500a84916c5b1, type: 3}
+  mediumEnemies:
+  - {fileID: 1633913536532447706, guid: b71cb6045db89a74893f56666dc931ae, type: 3}
+  - {fileID: 1633913536532447706, guid: ba3c55a1fe98aba42b9e76946cfc13ec, type: 3}
+  - {fileID: 1633913536532447706, guid: e6946852587f5b24bb45f730e1220865, type: 3}
+  slowEnemies:
+  - {fileID: 1633913536532447706, guid: b16237a86f1bcd948ac48d8f0d7b824e, type: 3}
+  - {fileID: 1633913536532447706, guid: e4721e1bc86702141aa8f075aa90d673, type: 3}
+  - {fileID: 1633913536532447706, guid: 2bc6e69b0eebc474db3256f545739145, type: 3}
+  bosses:
+  - {fileID: 1633913536532447706, guid: 84a92d2ffac98f94cb23653fe790a970, type: 3}
+  - {fileID: 1633913536532447706, guid: 1be7ad55ea78c59408069745570facad, type: 3}
+  - {fileID: 1633913536532447706, guid: b4b7fc757e6c9b145bfb277c4ac25e14, type: 3}
+  - {fileID: 1633913536532447706, guid: 41adc421592ef2b4cbc5352312b8342d, type: 3}
+  - {fileID: 1633913536532447706, guid: 985f8fe1e2fea1544a5311eae4bec623, type: 3}
+  - {fileID: 1633913536532447706, guid: 871279597793b4c42a5e5df75f7d6a02, type: 3}
+  - {fileID: 1633913536532447706, guid: 793fc678c49df97489dabb7ae18b65f5, type: 3}
   spawnPoints:
   - {fileID: 2088852887}
   - {fileID: 582267421}
@@ -4458,11 +4472,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2932609871816274919, guid: 038bbf70c0351db4ab117fc72ed3aae6, type: 3}
       propertyPath: rango
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2932609871816274919, guid: 038bbf70c0351db4ab117fc72ed3aae6, type: 3}
       propertyPath: velocidadRotacion
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932609871816274919, guid: 038bbf70c0351db4ab117fc72ed3aae6, type: 3}
+      propertyPath: "Da\xF1oHaciaEnemigos"
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2932609871816274919, guid: 038bbf70c0351db4ab117fc72ed3aae6, type: 3}
       propertyPath: tiempoEntreDisparos

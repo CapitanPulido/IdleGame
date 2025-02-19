@@ -82,30 +82,36 @@ public class WaveManager : MonoBehaviour
 
     private GameObject GetEnemyForCurrentWave()
     {
-        // Probabilidades ajustadas según la oleada
         int waveLevel = currentWave;
-        int fastChance = Mathf.Clamp(40 - waveLevel, 10, 40);
-        int mediumChance = Mathf.Clamp(30 + waveLevel / 2, 20, 50);
-        int slowChance = Mathf.Clamp(30 + waveLevel / 3, 10, 40);
+        int fastChance = Mathf.Clamp(60 - waveLevel, 10, 40);
+        int mediumChance = Mathf.Clamp(40 + waveLevel / 2, 20, 50);
+        int slowChance = Mathf.Clamp(0 + waveLevel / 1, 2, 3);
 
         int randomValue = Random.Range(0, 100);
 
-        if (randomValue < fastChance && fastEnemies.Count > 0)
+        // Verifica si ya se alcanzó la oleada necesaria para los fastEnemies
+        if (waveLevel > 10 && randomValue < fastChance && fastEnemies.Count > 0)
         {
             return fastEnemies[Random.Range(0, fastEnemies.Count)];
         }
-        else if (randomValue < fastChance + mediumChance && mediumEnemies.Count > 0)
-        {
-            return mediumEnemies[Random.Range(0, mediumEnemies.Count)];
-        }
-        else if (slowEnemies.Count > 0)
+
+        // Verifica si ya se alcanzó la oleada necesaria para los slowEnemies
+        if (waveLevel > 20 && randomValue < fastChance + mediumChance + slowChance && slowEnemies.Count > 0)
         {
             return slowEnemies[Random.Range(0, slowEnemies.Count)];
         }
 
-        // Por defecto, devolver un enemigo medio si no hay de otro tipo
-        return mediumEnemies[Random.Range(0, mediumEnemies.Count)];
+        // Si no cumple ninguna condición anterior, solo puede aparecer un mediumEnemy
+        if (mediumEnemies.Count > 0)
+        {
+            return mediumEnemies[Random.Range(0, mediumEnemies.Count)];
+        }
+
+        // Por defecto, devuelve null (aunque esto no debería ocurrir si las listas están bien configuradas)
+        Debug.LogWarning("No hay enemigos disponibles para generar.");
+        return null;
     }
+    
 
     private void SpawnEnemy(GameObject enemyPrefab)
     {

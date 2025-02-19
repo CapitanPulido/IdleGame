@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MejoraAleatoria : MonoBehaviour
+public class Mejoras : MonoBehaviour
 {
     public GameObject ElegirMejora;
     public Torreta Torreta;
@@ -21,43 +21,7 @@ public class MejoraAleatoria : MonoBehaviour
 
     void Start()
     {
-        // Agregar acciones y nombres
-        acciones.Add(Velocidad);
-        nombres.Add("Velocidad");
-        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/Velocidad"));
-
-        acciones.Add(Daño);
-        nombres.Add("Daño");
-        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/Dano"));
-
-        acciones.Add(Rango);
-        nombres.Add("Rango");
-        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/Rango"));
-
-        acciones.Add(Vida);
-        nombres.Add("Vida");
-        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/Vida"));
-
-        // Elegir 3 acciones aleatorias sin repetir
-        List<int> indicesSeleccionados = new List<int>();
-        for (int i = 0; i < botones.Length; i++)
-        {
-            int indice;
-            do
-            {
-                indice = Random.Range(0, acciones.Count);
-            } while (indicesSeleccionados.Contains(indice));
-
-            indicesSeleccionados.Add(indice);
-
-            // Asignar acción al botón
-            int indiceCopia = indice; // Necesario para evitar problemas con el closure en la lambda
-            botones[i].onClick.AddListener(() => acciones[indiceCopia].Invoke());
-
-            // Asignar imagen y texto
-            imagenes[i].texture = imagenesAcciones[indiceCopia];
-            textos[i].text = nombres[indiceCopia];
-        }
+    
     }
 
     public void Velocidad()
@@ -86,5 +50,57 @@ public class MejoraAleatoria : MonoBehaviour
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
         VT.MejoraVida(0.25f);
+    }
+
+    public void AgregarAcciones()
+    {
+        // Agregar acciones y nombres
+        acciones.Add(Velocidad);
+        nombres.Add("Velocidad");
+        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/Velocidad"));
+
+        acciones.Add(Daño);
+        nombres.Add("Daño");
+        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/Dano"));
+
+        acciones.Add(Rango);
+        nombres.Add("Rango");
+        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/Rango"));
+
+        acciones.Add(Vida);
+        nombres.Add("Vida");
+        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/Vida"));
+
+        acciones.Add(VidaExtra);
+        nombres.Add("VidaExtra");
+        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/Vida"));
+
+
+
+        // Elegir 3 acciones aleatorias sin repetir
+        List<int> indicesSeleccionados = new List<int>();
+        for (int i = 0; i < botones.Length; i++)
+        {
+            int indice;
+            do
+            {
+                indice = Random.Range(0, acciones.Count);
+            } while (indicesSeleccionados.Contains(indice));
+
+            indicesSeleccionados.Add(indice);
+
+            // Asignar acción al botón
+            int indiceCopia = indice; // Necesario para evitar problemas con el closure en la lambda
+            botones[i].onClick.AddListener(() => acciones[indiceCopia].Invoke());
+
+            // Asignar imagen y texto
+            imagenes[i].texture = imagenesAcciones[indiceCopia];
+            textos[i].text = nombres[indiceCopia];
+        }
+    }
+
+    public void VidaExtra()
+    {
+        VT.VidaExtra1();
     }
 }

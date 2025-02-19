@@ -26,6 +26,8 @@ public class VidaTorreta : MonoBehaviour
     public bool ObtXp = true;
 
     public GameObject ElegirMejora;
+    public Mejoras Mejora;
+    public bool VidaExtra = false;
 
     void Start()
     {
@@ -59,9 +61,25 @@ public class VidaTorreta : MonoBehaviour
             currentLevel += 1;
             
             ElegirMejora.SetActive(true);   
+            Mejora.AgregarAcciones();
+        }
+
+        if (CurrentHealth >= MinHealth && VidaExtra == false)
+        {
+
+        }
+
+        else if (CurrentHealth >= MinHealth && VidaExtra == true)
+        {
+            CurrentHealth = MaxHealth;
+            VidaExtra = false;
         }
     }
 
+    public void VidaExtra1()
+    {
+        VidaExtra = true;
+    }
     public void ActiveObtXp()
     {
         ObtXp = true;
