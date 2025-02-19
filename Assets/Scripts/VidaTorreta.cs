@@ -43,13 +43,12 @@ public class VidaTorreta : MonoBehaviour
 
     void Update()
     {
-        // Suaviza la actualización del slider
-        //Xp.value = Mathf.Lerp(Xp.value, currentExperience, Time.deltaTime * 10f);
+       
         Xp.value = currentExperience;
         Vida.value = CurrentHealth;
        if( ObtXp == true ) 
         {
-            currentExperience += (5 * Time.deltaTime);
+            currentExperience += (20 * Time.deltaTime);
         }
 
         if(currentExperience >= 100)
@@ -67,39 +66,6 @@ public class VidaTorreta : MonoBehaviour
     {
         ObtXp = true;
     }
-
-    //public void AddExperience(int amount)
-    //{
-    //    currentExperience += amount;
-    //    CheckLevelUp();
-    //}
-
-    //void CheckLevelUp()
-    //{
-    //    while (currentExperience >= experienceToNextLevel)
-    //    {
-    //        currentExperience -= experienceToNextLevel;
-    //        currentLevel++;
-    //        experienceToNextLevel += Mathf.RoundToInt(experienceToNextLevel * 0.25f);
-
-    //        //// Recuperar 20% de salud al subir de nivel
-    //        //CurrentHealth = Mathf.Min(CurrentHealth + (MaxHealth * 0.2f), MaxHealth);
-
-    //        // Notificar nivel nuevo
-    //        OnLevelUp?.Invoke(currentLevel);
-
-    //        // Comprobar si es el nivel de mejora (cada 5 niveles)
-    //        if (currentLevel % 5 == 0)
-    //        {
-    //            // Llamar al método de mostrar mejoras del ImprovementManager
-    //            ImprovementManager improvementManager = FindObjectOfType<ImprovementManager>();
-    //            improvementManager.ShowImprovementsForLevel(currentLevel);
-    //        }
-
-    //        Xp.maxValue = experienceToNextLevel; // Actualizar el máximo del slider
-    //    }
-    //}
-
 
     public void TakeDamage(float damage)
     {
@@ -151,6 +117,13 @@ public class VidaTorreta : MonoBehaviour
         }
     }
 
-    
+    public void MejoraVida(float porcentaje)
+    {
+        // Aumenta la vida manera porcentual
+        float Aumento = MaxHealth * (porcentaje);
+        MaxHealth += Aumento;
+
+        Debug.Log("Nueva Vida");
+    }
 }
 
