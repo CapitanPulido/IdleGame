@@ -8,6 +8,6 @@ public class mENU : MonoBehaviour
     // Start is called before the first frame update
     public void Jugar()
     {
-        SceneManager.LoadScene
+        SceneManager.LoadScene("");
     }
 }

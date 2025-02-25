@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,6 +10,8 @@ public class Enemy : MonoBehaviour
     public float ActualHealth;
     public float Daño;
     public VidaTorreta VT;
+    
+
 
     public int experiencePoints = 50; // Experiencia otorgada por este enemigo
 
@@ -25,6 +28,8 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -34,7 +39,18 @@ public class Enemy : MonoBehaviour
             TakeDamage(5);
         }
 
+        if(collision.gameObject.CompareTag("ZE"))
+        {
+            StartCoroutine(DañandoseRutina());
+        }
+
     }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        StopCoroutine(DañandoseRutina());
+    }
+
     public void TakeDamage(float amount)
     {
 
@@ -56,5 +72,14 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-   
+   IEnumerator DañandoseRutina()
+    {
+        ActualHealth -= 3;
+
+        yield return new WaitForSeconds(2);
+
+        StartCoroutine(DañandoseRutina());
+
+        
+    }
 }
