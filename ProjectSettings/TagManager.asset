@@ -8,6 +8,7 @@ TagManager:
   - Enemigo
   - Proyectil
   - Familiar
+  - ZE
   layers:
   - Default
   - TransparentFX

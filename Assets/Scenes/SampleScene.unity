@@ -869,6 +869,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169067902}
   m_CullTransparentMesh: 1
+--- !u!1 &172694098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 172694099}
+  m_Layer: 0
+  m_Name: spawnZE
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &172694099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172694098}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &183276096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,6 +2459,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1952983661}
     - target: {fileID: 9037247307956002096, guid: c8b2eddd77104ad48a57e399dbed580d, type: 3}
+      propertyPath: Mejora
+      value: 
+      objectReference: {fileID: 2046409122}
+    - target: {fileID: 9037247307956002096, guid: c8b2eddd77104ad48a57e399dbed580d, type: 3}
       propertyPath: MaxHealth
       value: 100
       objectReference: {fileID: 0}
@@ -2751,8 +2786,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1164266379}
-  - component: {fileID: 1164266378}
   - component: {fileID: 1164266380}
+  - component: {fileID: 1164266382}
+  - component: {fileID: 1164266383}
   m_Layer: 0
   m_Name: GameManger
   m_TagString: Untagged
@@ -2760,20 +2796,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1164266378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164266376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c859bb45205221b4fa78f8b923303a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableImprovements: []
-  familiarPrefab: {fileID: 0}
 --- !u!4 &1164266379
 Transform:
   m_ObjectHideFlags: 0
@@ -2828,6 +2850,46 @@ MonoBehaviour:
   - {fileID: 735479388}
   - {fileID: 504700982}
   - {fileID: 1940493036}
+--- !u!114 &1164266382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164266376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b047512fd2e254cae862e057b5f3cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ElegirMejora: {fileID: 2046409121}
+  Torreta: {fileID: 1502028132}
+  VT: {fileID: 796239921}
+  botones:
+  - {fileID: 422443069}
+  - {fileID: 1827284383}
+  - {fileID: 314886570}
+  imagenes: []
+  textos:
+  - {fileID: 25463613}
+  - {fileID: 261017390}
+  - {fileID: 169067904}
+--- !u!114 &1164266383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164266376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc70d54e4b10e443a0931bb157be699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownZE: 0
+  spawnPoints:
+  - {fileID: 172694099}
+  ZonaEfectoFuego: {fileID: 5753395635538266162, guid: 2c637f0b8005f7c42827ffdda9e9a38f, type: 3}
 --- !u!1 &1202932993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4480,7 +4542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2932609871816274919, guid: 038bbf70c0351db4ab117fc72ed3aae6, type: 3}
       propertyPath: "Da\xF1oHaciaEnemigos"
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2932609871816274919, guid: 038bbf70c0351db4ab117fc72ed3aae6, type: 3}
       propertyPath: tiempoEntreDisparos
@@ -4546,6 +4608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torreta
       objectReference: {fileID: 0}
+    - target: {fileID: 9014315079371714033, guid: 038bbf70c0351db4ab117fc72ed3aae6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7180905516526543434, guid: 038bbf70c0351db4ab117fc72ed3aae6, type: 3}
@@ -4569,3 +4635,4 @@ SceneRoots:
   - {fileID: 1397177612}
   - {fileID: 1812134088}
   - {fileID: 2046409126}
+  - {fileID: 172694099}
