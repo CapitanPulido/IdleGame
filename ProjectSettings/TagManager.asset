@@ -8,6 +8,9 @@ TagManager:
   - Enemigo
   - Proyectil
   - Familiar
+  - ZEF
+  - ZEH
+  - ZEV
   - ZE
   layers:
   - Default
