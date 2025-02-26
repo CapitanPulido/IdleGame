@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Enemy : MonoBehaviour
     public float ActualHealth;
     public float Daño;
     public VidaTorreta VT;
-    
+    NavMeshAgent agent;
 
 
     public int experiencePoints = 50; // Experiencia otorgada por este enemigo
@@ -39,11 +40,19 @@ public class Enemy : MonoBehaviour
             TakeDamage(5);
         }
 
-        if(collision.gameObject.CompareTag("ZE"))
+        if(collision.gameObject.CompareTag("ZEF"))
         {
             StartCoroutine(DañandoseRutina());
         }
-
+        if(collision.gameObject.CompareTag("ZEH"))
+        {
+            agent.speed = agent.speed / 2;
+        }
+        if (collision.gameObject.CompareTag("ZEV"))
+        {
+            StartCoroutine(DañandoseRutina());
+            agent.speed = agent.speed / 2;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)

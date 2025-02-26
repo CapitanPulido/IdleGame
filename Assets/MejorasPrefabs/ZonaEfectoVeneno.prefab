@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1991233654835735754}
   - component: {fileID: 1647383707861471270}
   m_Layer: 0
-  m_Name: ZonaEfecto
-  m_TagString: ZE
+  m_Name: ZonaEfectoVeneno
+  m_TagString: ZEV
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
