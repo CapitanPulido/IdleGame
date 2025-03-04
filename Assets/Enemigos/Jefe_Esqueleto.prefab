@@ -151,6 +151,9 @@ MonoBehaviour:
   ActualHealth: 20
   "Da\xF1o": 4
   VT: {fileID: 9037247307956002096, guid: c8b2eddd77104ad48a57e399dbed580d, type: 3}
+  Torreta: {fileID: 0}
+  "Da\xF1oHaciaEnemigos": 5
+  "Da\xF1oFamiliar": 50
   experiencePoints: 50
 --- !u!50 &2173302799571387895
 Rigidbody2D:

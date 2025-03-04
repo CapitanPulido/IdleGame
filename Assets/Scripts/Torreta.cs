@@ -9,6 +9,8 @@ public class Torreta : MonoBehaviour
     public float velocidadRotacion = 5f; // Velocidad de rotación
     public float tiempoEntreDisparos = 1f; // Tiempo inicial entre disparos
     public float DañoHaciaEnemigos;
+    public float DañoFamiliar;
+
 
     private float tiempoDisparoRestante = 0f;
 
@@ -91,20 +93,22 @@ public class Torreta : MonoBehaviour
         Debug.Log("Nueva velocidad de disparo: " + tiempoEntreDisparos);
     }
 
-    public void MejoraDaño(float porcentaje)
-    {
-        // Aumenta el daño de manera porcentual
-        float Aumento = DañoHaciaEnemigos * (porcentaje);
-        DañoHaciaEnemigos += Aumento;
-
-        Debug.Log("Nuevo Daño");
-    }
+    
 
     public void MejoraRango(float porcentaje)
     {
         // Aumenta el rango de manera porcentual
         float Aumento = rango * (porcentaje);
         rango += Aumento;
+
+        Debug.Log("Nuevo Daño");
+    }
+
+    public void MejoraDaño(float porcentaje)
+    {
+        // Aumenta el daño de manera porcentual
+        float Aumento = DañoHaciaEnemigos * (porcentaje);
+        DañoHaciaEnemigos += Aumento;
 
         Debug.Log("Nuevo Daño");
     }

@@ -101,4 +101,6 @@ MonoBehaviour:
   proyectilPrefab: {fileID: 433258074151894917, guid: a239fdcfa8409bb49afc9e8c3113b08d, type: 3}
   rango: 5
   velocidadRotacion: 5
-  tiempoEntreDisparos: 0.1
+  tiempoEntreDisparos: 1
+  "Da\xF1oHaciaEnemigos": 5
+  "Da\xF1oFamiliar": 50
