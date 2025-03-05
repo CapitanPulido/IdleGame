@@ -8,10 +8,10 @@ public class Swipe : MonoBehaviour
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
     private GameObject CanvaMenu;
-    private Animator animation;
+    private Animator menu;
     private void Start()
     {
-        animation = GetComponent<Animator>();
+        menu = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -26,12 +26,12 @@ public class Swipe : MonoBehaviour
 
             if (endTouchPosition.x < startTouchPosition.x)
             {
-                animation.Play("New Animation");
+                menu.Play("CLOSE");
             }
 
             if (endTouchPosition.x > startTouchPosition.x)
             {
-                CanvaMenu.SetActive(false);
+                menu.Play("In");
             }
         }
     }
