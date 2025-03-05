@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         ActualHealth = MaxHealth;
+        Torreta = GameObject.FindGameObjectWithTag("Player").GetComponent<Torreta>();
     }
 
     // Update is called once per frame
