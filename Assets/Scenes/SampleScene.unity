@@ -2972,9 +2972,6 @@ MonoBehaviour:
   ZonaEfectoFuego: {fileID: 5753395635538266162, guid: 2c637f0b8005f7c42827ffdda9e9a38f, type: 3}
   ZonaEfectoHielo: {fileID: 5753395635538266162, guid: a1e5b143370e658439d7d69bd91ef025, type: 3}
   ZonaEfectoVeneno: {fileID: 5753395635538266162, guid: a8dcd663b8eb9c74ca73a3519fbee7b1, type: 3}
-  MejoraZEF: 0
-  MejoraZEH: 0
-  MejoraZEV: 0
 --- !u!114 &1164266383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4537,9 +4534,6 @@ MonoBehaviour:
   ZonaEfectoFuego: {fileID: 0}
   ZonaEfectoHielo: {fileID: 0}
   ZonaEfectoVeneno: {fileID: 0}
-  MejoraZEF: 0
-  MejoraZEH: 0
-  MejoraZEV: 0
 --- !u!114 &2046409123
 MonoBehaviour:
   m_ObjectHideFlags: 0
