@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 61219d20cbd39c8488aae4ce44abe399
+guid: a6d90484e00027e4dad29be0a03dd43f
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 25
       width: 12
       height: 12
-    spriteID: 6061e72c0ab9fcd49a8091564117d8e9
+    spriteID: 31af891376f6c0245b5b9d51c1dd999e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 13
-    spriteID: d8db18667861961448a0d5149f6deec9
+    spriteID: f00f421878f535541a0ff1ecee4137ae
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 25
       width: 12
       height: 13
-    spriteID: f8f17649681da424ba27ec22b5caf967
+    spriteID: 5da580250af02ec4fa8817f4a1536627
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 45
       width: 12
       height: 12
-    spriteID: 06881fe0bc28b1b46ba9a399b4ee5ef1
+    spriteID: 263056adc8db2a64a8a121dd0413edbc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 12
-    spriteID: 881b2d52c22c9e94287107a9e0195a92
+    spriteID: 2fd574f2517f3434fb0b1a7759e4559c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 46
       width: 12
       height: 13
-    spriteID: 56eae58da31a9324ebd1ee91f0aa982f
+    spriteID: 2c1dfeaa08326fe4384eb5b405dba281
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 13
-    spriteID: 5c6edce70edd1c6419d01001aa57bfbf
+    spriteID: 334538f23969f2745915a2c3e432aafa
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 24
       width: 12
       height: 12
-    spriteID: 77886c53ce5570d42ba70f6c44d538cd
+    spriteID: c18845e2a9eb72d429c441446bce14e3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -298,7 +298,7 @@ ScriptedImporter:
         y: 1
         width: 12
         height: 12
-      spriteId: 6061e72c0ab9fcd49a8091564117d8e9
+      spriteId: 31af891376f6c0245b5b9d51c1dd999e
     - name: Mago apuntando lateral arriba_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -307,7 +307,7 @@ ScriptedImporter:
         y: 1
         width: 12
         height: 13
-      spriteId: d8db18667861961448a0d5149f6deec9
+      spriteId: f00f421878f535541a0ff1ecee4137ae
     - name: Mago apuntando lateral arriba_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -316,7 +316,7 @@ ScriptedImporter:
         y: 1
         width: 12
         height: 13
-      spriteId: f8f17649681da424ba27ec22b5caf967
+      spriteId: 5da580250af02ec4fa8817f4a1536627
     - name: Mago apuntando lateral arriba_Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -325,7 +325,7 @@ ScriptedImporter:
         y: 1
         width: 12
         height: 12
-      spriteId: 06881fe0bc28b1b46ba9a399b4ee5ef1
+      spriteId: 263056adc8db2a64a8a121dd0413edbc
     - name: Mago apuntando lateral arriba_Frame_4
       frameIndex: 4
       additiveSortOrder: 0
@@ -334,7 +334,7 @@ ScriptedImporter:
         y: 1
         width: 12
         height: 12
-      spriteId: 881b2d52c22c9e94287107a9e0195a92
+      spriteId: 2fd574f2517f3434fb0b1a7759e4559c
     - name: Mago apuntando lateral arriba_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
@@ -343,7 +343,7 @@ ScriptedImporter:
         y: 1
         width: 12
         height: 13
-      spriteId: 56eae58da31a9324ebd1ee91f0aa982f
+      spriteId: 2c1dfeaa08326fe4384eb5b405dba281
     - name: Mago apuntando lateral arriba_Frame_6
       frameIndex: 6
       additiveSortOrder: 0
@@ -352,7 +352,7 @@ ScriptedImporter:
         y: 1
         width: 12
         height: 13
-      spriteId: 5c6edce70edd1c6419d01001aa57bfbf
+      spriteId: 334538f23969f2745915a2c3e432aafa
     - name: Mago apuntando lateral arriba_Frame_7
       frameIndex: 7
       additiveSortOrder: 0
@@ -361,7 +361,7 @@ ScriptedImporter:
         y: 1
         width: 12
         height: 12
-      spriteId: 77886c53ce5570d42ba70f6c44d538cd
+      spriteId: c18845e2a9eb72d429c441446bce14e3
     linkedCells: []
     parentIndex: -1
   platformSettings: []

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bf5ff3657c5cc614880c3d5bdc70813e
+guid: ffc88f9e70c7b6945a903633bb348afc
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 24
       width: 11
       height: 11
-    spriteID: fdf17fc8edf0f9f45b9f688c379c140c
+    spriteID: 000351d10e050144593a15c96eb105ae
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 4
       width: 11
       height: 12
-    spriteID: 4bb8b29047aa1e541947e7a620874325
+    spriteID: 787274b6b06fbb242b1c1205d63f9f0b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 24
       width: 11
       height: 12
-    spriteID: 2e38b8005f67b164b86f43e1fefdccff
+    spriteID: a13b2294079bb4042b4541b2ad30ea63
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 43
       width: 11
       height: 11
-    spriteID: 784bc7c4db70401408765e5d9eb41b66
+    spriteID: 3c7d54c774d87c54bb1b413794a32f4e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 4
       width: 11
       height: 11
-    spriteID: ff096e287af8db541b51d5dfc92c5226
+    spriteID: 2eae1182cfa070248bdb8c5ed610bcfe
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 44
       width: 11
       height: 12
-    spriteID: e24e5c1e40ee24d428a433a6fa018c13
+    spriteID: 240faa625579ca54e824a73f700432fb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 4
       width: 11
       height: 12
-    spriteID: de2763426b7cb2b409de0b308a4d8e86
+    spriteID: 95d90e605c245124e84f1aebd2465c9d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 23
       width: 11
       height: 11
-    spriteID: 67b6cc342e5c53c408acc32e77af54f6
+    spriteID: 317b17c00a5281547a7d101886323520
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -298,7 +298,7 @@ ScriptedImporter:
         y: 2
         width: 11
         height: 11
-      spriteId: fdf17fc8edf0f9f45b9f688c379c140c
+      spriteId: 000351d10e050144593a15c96eb105ae
     - name: mago lado_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -307,7 +307,7 @@ ScriptedImporter:
         y: 2
         width: 11
         height: 12
-      spriteId: 4bb8b29047aa1e541947e7a620874325
+      spriteId: 787274b6b06fbb242b1c1205d63f9f0b
     - name: mago lado_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -316,7 +316,7 @@ ScriptedImporter:
         y: 2
         width: 11
         height: 12
-      spriteId: 2e38b8005f67b164b86f43e1fefdccff
+      spriteId: a13b2294079bb4042b4541b2ad30ea63
     - name: mago lado_Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -325,7 +325,7 @@ ScriptedImporter:
         y: 2
         width: 11
         height: 11
-      spriteId: 784bc7c4db70401408765e5d9eb41b66
+      spriteId: 3c7d54c774d87c54bb1b413794a32f4e
     - name: mago lado_Frame_4
       frameIndex: 4
       additiveSortOrder: 0
@@ -334,7 +334,7 @@ ScriptedImporter:
         y: 2
         width: 11
         height: 11
-      spriteId: ff096e287af8db541b51d5dfc92c5226
+      spriteId: 2eae1182cfa070248bdb8c5ed610bcfe
     - name: mago lado_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
@@ -343,7 +343,7 @@ ScriptedImporter:
         y: 2
         width: 11
         height: 12
-      spriteId: e24e5c1e40ee24d428a433a6fa018c13
+      spriteId: 240faa625579ca54e824a73f700432fb
     - name: mago lado_Frame_6
       frameIndex: 6
       additiveSortOrder: 0
@@ -352,7 +352,7 @@ ScriptedImporter:
         y: 2
         width: 11
         height: 12
-      spriteId: de2763426b7cb2b409de0b308a4d8e86
+      spriteId: 95d90e605c245124e84f1aebd2465c9d
     - name: mago lado_Frame_7
       frameIndex: 7
       additiveSortOrder: 0
@@ -361,7 +361,7 @@ ScriptedImporter:
         y: 2
         width: 11
         height: 11
-      spriteId: 67b6cc342e5c53c408acc32e77af54f6
+      spriteId: 317b17c00a5281547a7d101886323520
     linkedCells: []
     parentIndex: -1
   platformSettings: []

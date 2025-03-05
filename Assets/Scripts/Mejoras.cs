@@ -6,8 +6,9 @@ using TMPro;
 public class Mejoras : MonoBehaviour
 {
     public GameObject ElegirMejora;
-    public Torreta Torreta;
+    public Torreta torreta;
     public VidaTorreta VT;
+    
 
     // Referencias a los botones, imágenes y textos
     public Button[] botones;
@@ -18,26 +19,28 @@ public class Mejoras : MonoBehaviour
     private List<System.Action> acciones = new List<System.Action>();
     private List<string> nombres = new List<string>();
     private List<Texture> imagenesAcciones = new List<Texture>();
+    public Transform[] spawnPoints;
 
     public float cooldownZEF;
     public float cooldownZEH;
     public float cooldownZEV;
     public Vector2 spawnAreaMin; // Esquina inferior izquierda del área de spawn
     public Vector2 spawnAreaMax; // Esquina superior derecha del área de spawn
+    public GameObject familiar;
     public GameObject ZonaEfectoFuego;
     public GameObject ZonaEfectoHielo;
     public GameObject ZonaEfectoVeneno;
     private Vector2 lastSpawnPosition; // Para evitar que se repita la misma posición
 
-    public bool MejoraZEF = false;
-    public bool MejoraZEH = false;
-    public bool MejoraZEV = false;
+    public static bool MejoraZEF = false;
+    public static bool MejoraZEH = false;
+    public static bool MejoraZEV = false;
 
 
 
     void Start()
     {
-    
+        torreta = GameObject.FindGameObjectWithTag("Player").GetComponent<Torreta>();
     }
 
     void Update()
@@ -75,7 +78,7 @@ public class Mejoras : MonoBehaviour
             cooldownZEH = 0;
         }
 
-        if(Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             ZEF();
         }
@@ -86,21 +89,21 @@ public class Mejoras : MonoBehaviour
     {
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
-        Torreta.MejoraVelocidad(0.25f);
+        torreta.MejoraVelocidad(0.25f);
     }
 
     public void Daño()
     {
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
-        Torreta.MejoraDaño(0.25f);
+        torreta.MejoraDaño(0.25f);
     }
 
     public void Rango()
     {
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
-        Torreta.MejoraRango(0.25f);
+        torreta.MejoraRango(0.25f);
     }
 
     public void Vida()
@@ -136,8 +139,21 @@ public class Mejoras : MonoBehaviour
         VT.ActiveObtXp();
     }
 
+    public void Familiar()
+    {
+        SpawnFamiliar();
+        ElegirMejora.SetActive(false);
+        VT.ActiveObtXp();
+    }
+
+
+
     public void AgregarAcciones()
     {
+        acciones.Clear();
+        nombres.Clear();
+        imagenesAcciones.Clear();
+
         // Agregar acciones y nombres
         acciones.Add(Velocidad);
         nombres.Add("Velocidad");
@@ -163,13 +179,17 @@ public class Mejoras : MonoBehaviour
         nombres.Add("ZEF");
         imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/ZEF"));
 
-        acciones.Add(ZEH);
-        nombres.Add("ZEH");
-        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/ZEH"));
+        //acciones.Add(ZEH);
+        //nombres.Add("ZEH");
+        //imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/ZEH"));
 
-        acciones.Add(ZEV);
-        nombres.Add("ZEV");
-        imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/ZEV"));
+        //acciones.Add(ZEV);
+        //nombres.Add("ZEV");
+        //imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/ZEV"));
+
+        //acciones.Add(SpawnFamiliar);
+        //nombres.Add("Familiar");
+        //imagenesAcciones.Add(Resources.Load<Texture>("Imagenes/Familiar"));
 
 
 
@@ -177,13 +197,14 @@ public class Mejoras : MonoBehaviour
         List<int> indicesSeleccionados = new List<int>();
         for (int i = 0; i < botones.Length; i++)
         {
-            int indice;
-            do
+            int indice = Random.Range(0, acciones.Count); 
+            while (!indicesSeleccionados.Contains(indice))
             {
-                indice = Random.Range(0, acciones.Count);
-            } while (indicesSeleccionados.Contains(indice));
+                indicesSeleccionados.Add(indice);
+            }
 
-            indicesSeleccionados.Add(indice);
+            // Eliminar listeners previos para evitar acumulación
+            botones[i].onClick.RemoveAllListeners();
 
             // Asignar acción al botón
             int indiceCopia = indice; // Necesario para evitar problemas con el closure en la lambda
@@ -241,5 +262,12 @@ public class Mejoras : MonoBehaviour
 
         lastSpawnPosition = spawnPosition; // Guardamos la última posición
         Instantiate(ZonaEfectoVeneno, spawnPosition, Quaternion.identity);
+    }
+
+    private void SpawnFamiliar()
+    {
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(familiar, spawnPoint.position, spawnPoint.rotation);
+        Debug.Log("Familiar generado: " + familiar.name);
     }
 }

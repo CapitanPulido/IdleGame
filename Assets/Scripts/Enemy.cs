@@ -12,14 +12,16 @@ public class Enemy : MonoBehaviour
     public float Daño;
     public VidaTorreta VT;
     NavMeshAgent agent;
+    public Torreta Torreta;
+    public float DT;
+    public float DF;
 
-
-    public int experiencePoints = 50; // Experiencia otorgada por este enemigo
 
     // Start is called before the first frame update
     void Start()
     {
         ActualHealth = MaxHealth;
+        Torreta = GameObject.FindGameObjectWithTag("Player").GetComponent<Torreta>();
     }
 
     // Update is called once per frame
@@ -30,17 +32,22 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
 
-        
+        DT = Torreta.DañoHaciaEnemigos;
+        DF = Torreta.DañoFamiliar;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Proyectil"))
         {
-            TakeDamage(5);
+            TakeDamage(DT);
+        }
+        if (collision.gameObject.CompareTag("Familiar"))
+        {
+            TakeDamage(DF);
         }
 
-        if(collision.gameObject.CompareTag("ZEF"))
+        if (collision.gameObject.CompareTag("ZEF"))
         {
             StartCoroutine(DañandoseRutina());
         }
@@ -63,7 +70,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
 
-        //VT.AddExperience(5);
+
         ActualHealth -= amount;
         if (ActualHealth <= 0)
         {
@@ -91,4 +98,6 @@ public class Enemy : MonoBehaviour
 
         
     }
+
+    
 }
