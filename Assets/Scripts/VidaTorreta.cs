@@ -61,6 +61,7 @@ public class VidaTorreta : MonoBehaviour
             currentLevel += 1;
             
             ElegirMejora.SetActive(true);   
+
             Mejora.AgregarAcciones();
         }
 
@@ -143,5 +144,7 @@ public class VidaTorreta : MonoBehaviour
 
         Debug.Log("Nueva Vida");
     }
+
+
 }
 

@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
-        Debug.Log("+xp");
+        
     }
     private void Die()
     {

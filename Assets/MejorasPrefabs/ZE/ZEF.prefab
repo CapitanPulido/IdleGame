@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1454067894248444115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2911942496894688494}
+  - component: {fileID: 3317755335516125692}
+  m_Layer: 0
+  m_Name: ZEF
+  m_TagString: ZEF
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2911942496894688494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454067894248444115}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.15040752, y: -0.4502768, z: -0.15673804}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3317755335516125692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454067894248444115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca86293e496315547a5c81be94d46ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ZonaEfectoFuego: {fileID: 5753395635538266162, guid: 2c637f0b8005f7c42827ffdda9e9a38f, type: 3}
+  cooldownZE: 0
+  cooldownMax: 10
+  minCooldown: 2
+  spawnAreaMin: {x: -2.84, y: -2.82}
+  spawnAreaMax: {x: 2.79, y: 2.39}
+  currentScaleMultiplier: 1
+  maxScale: 3
