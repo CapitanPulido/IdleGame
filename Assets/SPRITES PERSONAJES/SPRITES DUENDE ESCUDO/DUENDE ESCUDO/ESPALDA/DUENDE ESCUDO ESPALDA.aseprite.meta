@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 45a0e4bac7eeedd4bba082e491337326
+guid: cf44c5db102c5b146bf3bef35191304f
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 23
       width: 12
       height: 10
-    spriteID: afdbec3f8475c714b83b92ddf8086ced
+    spriteID: e4e903c4355c3464a9b52c1683dacf06
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 12
-    spriteID: 2669d394f3625c247824bbaaf98ff20e
+    spriteID: a8d5951292723964181af35c9ebe37cb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 24
       width: 12
       height: 11
-    spriteID: e74071bef8a75eb4eabe6daea82307a1
+    spriteID: b0fd7180accba244eb75723fff7302a1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 41
       width: 12
       height: 10
-    spriteID: 5896c1a2ead5e334bb38864d54f7d47a
+    spriteID: c791432b018fc164aa32e6b9f6dc826f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 10
-    spriteID: e58c357dfd4c5e14c85aaf41fee073f0
+    spriteID: 6d2fa1a90f0c67f468ad13d979806ab3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 43
       width: 12
       height: 11
-    spriteID: 99992609080320f41bef83bbefb81b21
+    spriteID: d9e4edcbaf463c14eb60b4c2379e5289
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 11
-    spriteID: 9bb8b3e13f9b05c468110b45374a9756
+    spriteID: 6b202c96c96cc2b41baec87cae775cca
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 22
       width: 12
       height: 10
-    spriteID: e52422a9ed9dd0f42aebd6adbfb36f51
+    spriteID: ce2b2fa330a105d40b3253e88b44dfb1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -298,7 +298,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 10
-      spriteId: afdbec3f8475c714b83b92ddf8086ced
+      spriteId: e4e903c4355c3464a9b52c1683dacf06
     - name: DUENDE ESCUDO ESPALDA_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -307,7 +307,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 12
-      spriteId: 2669d394f3625c247824bbaaf98ff20e
+      spriteId: a8d5951292723964181af35c9ebe37cb
     - name: DUENDE ESCUDO ESPALDA_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -316,7 +316,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 11
-      spriteId: e74071bef8a75eb4eabe6daea82307a1
+      spriteId: b0fd7180accba244eb75723fff7302a1
     - name: DUENDE ESCUDO ESPALDA_Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -325,7 +325,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 10
-      spriteId: 5896c1a2ead5e334bb38864d54f7d47a
+      spriteId: c791432b018fc164aa32e6b9f6dc826f
     - name: DUENDE ESCUDO ESPALDA_Frame_4
       frameIndex: 4
       additiveSortOrder: 0
@@ -334,7 +334,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 10
-      spriteId: e58c357dfd4c5e14c85aaf41fee073f0
+      spriteId: 6d2fa1a90f0c67f468ad13d979806ab3
     - name: DUENDE ESCUDO ESPALDA_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
@@ -343,7 +343,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 11
-      spriteId: 99992609080320f41bef83bbefb81b21
+      spriteId: d9e4edcbaf463c14eb60b4c2379e5289
     - name: DUENDE ESCUDO ESPALDA_Frame_6
       frameIndex: 6
       additiveSortOrder: 0
@@ -352,7 +352,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 11
-      spriteId: 9bb8b3e13f9b05c468110b45374a9756
+      spriteId: 6b202c96c96cc2b41baec87cae775cca
     - name: DUENDE ESCUDO ESPALDA_Frame_7
       frameIndex: 7
       additiveSortOrder: 0
@@ -361,7 +361,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 10
-      spriteId: e52422a9ed9dd0f42aebd6adbfb36f51
+      spriteId: ce2b2fa330a105d40b3253e88b44dfb1
     linkedCells: []
     parentIndex: -1
   platformSettings: []

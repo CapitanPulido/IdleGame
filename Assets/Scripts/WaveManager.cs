@@ -26,7 +26,7 @@ public class WaveManager : MonoBehaviour
 
     public void StartNextWave()
     {
-        Debug.Log("Oleada: " + currentWave);
+        //Debug.Log("Oleada: " + currentWave);
 
         if (OnWaveStarted != null)
         {
@@ -108,7 +108,7 @@ public class WaveManager : MonoBehaviour
         }
 
         // Por defecto, devuelve null (aunque esto no debería ocurrir si las listas están bien configuradas)
-        Debug.LogWarning("No hay enemigos disponibles para generar.");
+        //Debug.LogWarning("No hay enemigos disponibles para generar.");
         return null;
     }
     
@@ -117,7 +117,7 @@ public class WaveManager : MonoBehaviour
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-        Debug.Log("Enemigo generado: " + enemyPrefab.name);
+        //Debug.Log("Enemigo generado: " + enemyPrefab.name);
     }
 
     public void OnEnemyDefeated()
@@ -126,7 +126,7 @@ public class WaveManager : MonoBehaviour
 
         if (enemiesRemainingInWave <= 0 && !isSpawning)
         {
-            Debug.Log("Oleada " + currentWave + " completada.");
+            //Debug.Log("Oleada " + currentWave + " completada.");
             currentWave++;
             StartNextWave();
         }

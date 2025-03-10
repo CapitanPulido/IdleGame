@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 433a5bdfd07b3bf40a2c148385ca23d6
+guid: e767b16b76524b049862a46edba36017
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 25
       width: 13
       height: 12
-    spriteID: be1fdd77878552c4ab64ba35f574eb61
+    spriteID: f9c3f47c7030bae4abc8effe80729789
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 4
       width: 13
       height: 13
-    spriteID: dc4239428a883c2459434734b308a816
+    spriteID: bcd218ec918cb2746864adfbaeddd140
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 45
       width: 12
       height: 11
-    spriteID: c14b0e7a4fafe344c83aa077e3afa227
+    spriteID: 29d52da6f72e5ec48b86c922647c56b4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 42
       width: 12
       height: 10
-    spriteID: 23ba66586f2722d4e99963051dacd88f
+    spriteID: 056c4eb936422fc4ca6e72deb7b2b6b2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 10
-    spriteID: b7ee9e6dd262b6944992cf5ea02e0085
+    spriteID: 94594a1901782aa45879cd693ceb4830
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 11
-    spriteID: 17632c7def37fce40b8e11e1c9416aa9
+    spriteID: 1afc24336ea1c84499a384b9c5453c69
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 23
       width: 12
       height: 11
-    spriteID: a7e1206ebb8abfc49800c248f39aaf56
+    spriteID: de5623a6c41459a4c87230117ba70bc9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 22
       width: 12
       height: 10
-    spriteID: 3bba999d01bb86f4d9e46ad30e6ee679
+    spriteID: 073305d98d351dd48992f45f831995e1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -298,7 +298,7 @@ ScriptedImporter:
         y: 3
         width: 13
         height: 12
-      spriteId: be1fdd77878552c4ab64ba35f574eb61
+      spriteId: f9c3f47c7030bae4abc8effe80729789
     - name: DUENDE ESCUDO FRENTE VENENO_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -307,7 +307,7 @@ ScriptedImporter:
         y: 3
         width: 13
         height: 13
-      spriteId: dc4239428a883c2459434734b308a816
+      spriteId: bcd218ec918cb2746864adfbaeddd140
     - name: DUENDE ESCUDO FRENTE VENENO_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -316,7 +316,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 11
-      spriteId: c14b0e7a4fafe344c83aa077e3afa227
+      spriteId: 29d52da6f72e5ec48b86c922647c56b4
     - name: DUENDE ESCUDO FRENTE VENENO_Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -325,7 +325,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 10
-      spriteId: 23ba66586f2722d4e99963051dacd88f
+      spriteId: 056c4eb936422fc4ca6e72deb7b2b6b2
     - name: DUENDE ESCUDO FRENTE VENENO_Frame_4
       frameIndex: 4
       additiveSortOrder: 0
@@ -334,7 +334,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 10
-      spriteId: b7ee9e6dd262b6944992cf5ea02e0085
+      spriteId: 94594a1901782aa45879cd693ceb4830
     - name: DUENDE ESCUDO FRENTE VENENO_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
@@ -343,7 +343,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 11
-      spriteId: 17632c7def37fce40b8e11e1c9416aa9
+      spriteId: 1afc24336ea1c84499a384b9c5453c69
     - name: DUENDE ESCUDO FRENTE VENENO_Frame_6
       frameIndex: 6
       additiveSortOrder: 0
@@ -352,7 +352,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 11
-      spriteId: a7e1206ebb8abfc49800c248f39aaf56
+      spriteId: de5623a6c41459a4c87230117ba70bc9
     - name: DUENDE ESCUDO FRENTE VENENO_Frame_7
       frameIndex: 7
       additiveSortOrder: 0
@@ -361,7 +361,7 @@ ScriptedImporter:
         y: 3
         width: 12
         height: 10
-      spriteId: 3bba999d01bb86f4d9e46ad30e6ee679
+      spriteId: 073305d98d351dd48992f45f831995e1
     linkedCells: []
     parentIndex: -1
   platformSettings: []

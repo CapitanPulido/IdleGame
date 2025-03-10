@@ -151,7 +151,9 @@ MonoBehaviour:
   ActualHealth: 10
   "Da\xF1o": 2
   VT: {fileID: 9037247307956002096, guid: c8b2eddd77104ad48a57e399dbed580d, type: 3}
-  experiencePoints: 50
+  Torreta: {fileID: 0}
+  DT: 0
+  DF: 0
 --- !u!50 &2173302799571387895
 Rigidbody2D:
   serializedVersion: 4

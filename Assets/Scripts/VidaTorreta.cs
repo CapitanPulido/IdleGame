@@ -50,7 +50,7 @@ public class VidaTorreta : MonoBehaviour
         Vida.value = CurrentHealth;
        if( ObtXp == true ) 
         {
-            currentExperience += (1 * Time.deltaTime);
+            currentExperience += (50 * Time.deltaTime);
         }
 
         if(currentExperience >= 100)
@@ -61,6 +61,7 @@ public class VidaTorreta : MonoBehaviour
             currentLevel += 1;
             
             ElegirMejora.SetActive(true);   
+
             Mejora.AgregarAcciones();
         }
 
@@ -143,5 +144,7 @@ public class VidaTorreta : MonoBehaviour
 
         Debug.Log("Nueva Vida");
     }
+
+
 }
 
