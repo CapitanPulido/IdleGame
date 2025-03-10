@@ -28,7 +28,7 @@ public class Mejoras : MonoBehaviour
 
     public void Awake()
     {
-        // Configurar mejoras bloqueadas inicialmente
+        // Configurar mejoras desbloqueadas inicialmente
         mejorasDesbloqueadas.Add("ZEF");
         mejorasDesbloqueadas.Add("ZEH");
         mejorasDesbloqueadas.Add("ZEV");
