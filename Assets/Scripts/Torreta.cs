@@ -10,9 +10,16 @@ public class Torreta : MonoBehaviour
     public float tiempoEntreDisparos = 1f; // Tiempo inicial entre disparos
     public float DañoHaciaEnemigos;
     public float DañoFamiliar;
+    public List<Sprite> sprites = new List<Sprite>();
 
+    private SpriteRenderer spriteRenderer;
 
     private float tiempoDisparoRestante = 0f;
+
+    private void Start()
+    {
+          spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void Update()
     {
@@ -37,6 +44,8 @@ public class Torreta : MonoBehaviour
         {
             MejoraVelocidad(25f); // Disminuye el tiempo entre disparos un 25%
         }
+
+
     }
 
     GameObject BuscarEnemigoCercano()
@@ -63,6 +72,23 @@ public class Torreta : MonoBehaviour
         float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
         Quaternion rotacionObjetivo = Quaternion.AngleAxis(angulo, Vector3.forward);
         cañon.rotation = Quaternion.Lerp(cañon.rotation, rotacionObjetivo, velocidadRotacion * Time.deltaTime);
+
+       if(-22.5f <= angulo &&  angulo <= 22.5f)
+        {
+            spriteRenderer.sprite = sprites[0];
+        }
+        else if (22.5f <= angulo && angulo <= 67.5f)
+        {
+            spriteRenderer.sprite = sprites[1];
+        }
+        else if (67.5f <= angulo && angulo <= 112.5f)
+        {
+            spriteRenderer.sprite = sprites[2];
+        }
+        else if (112.5f <= angulo && angulo <= 157.5f)
+        {
+            spriteRenderer.sprite = sprites[3];
+        }
     }
 
     void Disparar()

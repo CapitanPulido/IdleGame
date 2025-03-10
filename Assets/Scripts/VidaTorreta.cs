@@ -50,7 +50,7 @@ public class VidaTorreta : MonoBehaviour
         Vida.value = CurrentHealth;
        if( ObtXp == true ) 
         {
-            currentExperience += (50 * Time.deltaTime);
+            currentExperience += (2 * Time.deltaTime);
         }
 
         if(currentExperience >= 100)
