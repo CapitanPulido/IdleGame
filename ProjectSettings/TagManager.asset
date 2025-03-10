@@ -12,14 +12,15 @@ TagManager:
   - ZEH
   - ZEV
   - ZE
+  - Escudo
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Torreta
   - Water
   - UI
-  - 
+  - Escudo
   - 
   - 
   - 

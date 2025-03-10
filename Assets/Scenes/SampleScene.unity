@@ -660,6 +660,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torreta
       objectReference: {fileID: 0}
+    - target: {fileID: 9014315079371714033, guid: 038bbf70c0351db4ab117fc72ed3aae6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2708,6 +2712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuerpoTorreta
       objectReference: {fileID: 0}
+    - target: {fileID: 4071682777866804149, guid: c8b2eddd77104ad48a57e399dbed580d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4220635380676887111, guid: c8b2eddd77104ad48a57e399dbed580d, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -3181,6 +3189,7 @@ MonoBehaviour:
   zef: {fileID: 1816786486}
   zeh: {fileID: 1866542904}
   zev: {fileID: 558368516}
+  escudo: {fileID: 0}
   botones:
   - {fileID: 422443069}
   - {fileID: 1827284383}
@@ -3193,6 +3202,9 @@ MonoBehaviour:
   familiar: {fileID: 4374354108480922130, guid: c049d8cac3a7bd04f8b90cc4a2e9a907, type: 3}
   mejorasDesbloqueadas: []
   accionesList: []
+  cooldownMax: 10
+  minCooldown: 0
+  EscudoCooldown: 0
 --- !u!114 &1164266383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4730,9 +4742,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1969980244}
   - component: {fileID: 1969980243}
-  m_Layer: 0
+  - component: {fileID: 1969980245}
+  - component: {fileID: 1969980246}
+  m_Layer: 6
   m_Name: Escudo
-  m_TagString: Untagged
+  m_TagString: Escudo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4777,9 +4791,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.8897755, a: 0.3137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4799,11 +4813,64 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1969980245
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969980242}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &1969980246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969980242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efe9c62dce9a904794f45ca1c32b739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 0
+  Escudo1: {fileID: 1969980242}
+  "Da\xF1o": 2
+  CurrentHealth: 0
+  MaxHealth: 100
+  MinHealth: 0
 --- !u!1 &2046409121
 GameObject:
   m_ObjectHideFlags: 0

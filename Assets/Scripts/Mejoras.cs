@@ -13,6 +13,8 @@ public class Mejoras : MonoBehaviour
     public ZEH zeh;
     public ZEV zev;
 
+    public Escudo escudo;
+
     public Button[] botones;
     //public RawImage[] imagenes;
     public TextMeshProUGUI[] textos;
@@ -25,6 +27,11 @@ public class Mejoras : MonoBehaviour
     public List<System.Action> acciones = new List<System.Action>();
     public List<string> mejorasDesbloqueadas = new List<string>();
     public List<string> accionesList = new List<string>();
+
+    [Header("Cooldown Config")]
+    public float cooldownMax = 10f; // Tiempo inicial entre spawns
+    public float minCooldown = 2f; // Límite mínimo del cooldown
+    public float EscudoCooldown;
 
     public void Awake()
     {
@@ -42,6 +49,7 @@ public class Mejoras : MonoBehaviour
     void Start()
     {
         torreta = GameObject.FindGameObjectWithTag("Player").GetComponent<Torreta>();
+        escudo = GameObject.FindGameObjectWithTag("Escudo").GetComponent<Escudo>();
         zef = GameObject.FindGameObjectWithTag("ZEF").GetComponent<ZEF>();
         zeh = GameObject.FindGameObjectWithTag("ZEH").GetComponent<ZEH>();
         zev = GameObject.FindGameObjectWithTag("ZEV").GetComponent<ZEV>();
@@ -50,7 +58,15 @@ public class Mejoras : MonoBehaviour
 
     void Update()
     {
+        EscudoCooldown = EscudoCooldown + Time.deltaTime;
+        
+        
+        if (EscudoCooldown >= cooldownMax)
+        {
+            escudo.ReActivar();
+            EscudoCooldown = minCooldown;
 
+        }
 
     }
 
@@ -90,6 +106,31 @@ public class Mejoras : MonoBehaviour
             VT.VidaExtra1();
             ElegirMejora.SetActive(false);
          
+    }
+
+    public void ActiveEscudo()
+    {
+        escudo.Activar();
+        VT.ActiveObtXp();
+        ElegirMejora.SetActive(false);
+
+        mejorasDesbloqueadas.Add("CooldownEscudo");
+        mejorasDesbloqueadas.Add("AumentarVidaEscudo");
+    }
+
+    public void CooldownEscudo()
+    {
+        ReducirCooldown(0.25f);
+        VT.ActiveObtXp();
+        ElegirMejora.SetActive(false);
+    }
+
+    public void AumentarVidaEscudo()
+    {
+        escudo.AumentarVida(0.25f);
+        VT.ActiveObtXp();
+        ElegirMejora.SetActive(false);
+
     }
 
     public void ZEF()
@@ -336,6 +377,11 @@ public class Mejoras : MonoBehaviour
         } 
     }
 
+    public void ReducirCooldown(float porcentaje)
+    {
+        cooldownMax *= porcentaje;
+        cooldownMax = Mathf.Max(cooldownMax, minCooldown);
+    }
     public void SpawnFamiliar()
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
