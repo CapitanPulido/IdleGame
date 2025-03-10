@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZEF : MonoBehaviour
+public class ZEV : MonoBehaviour
 {
     public static bool MejoraZEF = false;
     public GameObject ZonaEfectoFuego;
@@ -26,8 +26,7 @@ public class ZEF : MonoBehaviour
 
     void Update()
     {
-       
-
+        
         cooldownZE += Time.deltaTime;
 
         if (active && cooldownZE >= cooldownMax)
@@ -38,10 +37,9 @@ public class ZEF : MonoBehaviour
 
         if (cooldownZE >= cooldownMax)
         {
-            
+
             cooldownZE = 0;
         }
-
     }
 
     private void SpawnZE()
