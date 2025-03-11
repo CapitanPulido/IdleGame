@@ -8,7 +8,7 @@ public class mENU : MonoBehaviour
     // Start is called before the first frame update
     public void Jugar()
     {
-        SceneManager.LoadScene("Rick");
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void Opciones()
