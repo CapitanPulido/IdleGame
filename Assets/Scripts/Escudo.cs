@@ -29,9 +29,6 @@ public class Escudo : MonoBehaviour
         {
             Escudo1.SetActive(false);
         }
-       
-        
-
 
         if (Input.GetKeyUp(KeyCode.P))
         {
@@ -51,15 +48,13 @@ public class Escudo : MonoBehaviour
         }
     }
 
-    public void OnCollisionStay(Collision collision)
+    public void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemigo"))
         {
             CurrentHealth -= Daño;
         }
     }
-
-    
 
     public void AumentarVida(float porcentaje)
     {
