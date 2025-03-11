@@ -45,6 +45,7 @@ public class Mejoras : MonoBehaviour
         mejorasDesbloqueadas.Add("Velocidad");
         mejorasDesbloqueadas.Add("Vida");
         mejorasDesbloqueadas.Add("Familiar");
+        mejorasDesbloqueadas.Add("ActiveEscudo");
     }
     void Start()
     {
@@ -224,9 +225,9 @@ public class Mejoras : MonoBehaviour
     public void Familiar()
     {
         
-            SpawnFamiliar();
-            ElegirMejora.SetActive(false);
-            VT.ActiveObtXp();
+        SpawnFamiliar();
+        ElegirMejora.SetActive(false);
+        VT.ActiveObtXp();
             
         
     }
@@ -265,6 +266,24 @@ public class Mejoras : MonoBehaviour
         {
             acciones.Add(Rango);
             nombres.Add("Rango");
+        }
+
+        if (mejorasDesbloqueadas.Contains("ActiveEscudo"))
+        {
+            acciones.Add(ActiveEscudo);
+            nombres.Add("Escudo");
+        }
+
+        if (mejorasDesbloqueadas.Contains("CooldownEscudo"))
+        {
+            acciones.Add(CooldownEscudo);
+            nombres.Add("EscudoCooldown");
+        }
+
+        if (mejorasDesbloqueadas.Contains("AumentarVidaEscudo"))
+        {
+            acciones.Add(AumentarVidaEscudo);
+            nombres.Add("VidaEscudo");
         }
 
         if (mejorasDesbloqueadas.Contains("ZEF"))
