@@ -72,23 +72,7 @@ public class Torreta : MonoBehaviour
         float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
         Quaternion rotacionObjetivo = Quaternion.AngleAxis(angulo, Vector3.forward);
         cañon.rotation = Quaternion.Lerp(cañon.rotation, rotacionObjetivo, velocidadRotacion * Time.deltaTime);
-
-        if (-22.5f <= angulo && angulo <= 22.5f)
-        {
-            spriteRenderer.sprite = sprites[0];
-        }
-        //else if (22.5f <= angulo && angulo <= 67.5f)
-        //{
-        //    spriteRenderer.sprite = sprites[1];
-        //}
-        //else if (67.5f <= angulo && angulo <= 112.5f)
-        //{
-        //    spriteRenderer.sprite = sprites[2];
-        //}
-        //else if (112.5f <= angulo && angulo <= 157.5f)
-        //{
-        //    spriteRenderer.sprite = sprites[3];
-        //}
+      
     }
 
     void Disparar()
