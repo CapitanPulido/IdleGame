@@ -18,7 +18,7 @@ public class WaveUI : MonoBehaviour
 
     private void UpdateWaveText(int waveIndex)
     {
-        waveText.text = $"Oleada: {waveIndex + 1}";
+        waveText.text = $"{waveIndex + 0}";
     }
 
     public void UpdateEnemiesRemaining(int enemiesRemaining)
