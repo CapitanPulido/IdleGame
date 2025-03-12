@@ -34,6 +34,12 @@ public class Enemy : MonoBehaviour
 
         DT = Torreta.DañoHaciaEnemigos;
         DF = Torreta.DañoFamiliar;
+
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            ActualHealth = 0;
+        }
+
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -90,7 +96,7 @@ public class Enemy : MonoBehaviour
 
    IEnumerator DañandoseRutina()
     {
-        ActualHealth -= 3;
+        ActualHealth -= 30;
 
         yield return new WaitForSeconds(2);
 

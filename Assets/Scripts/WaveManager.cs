@@ -24,6 +24,15 @@ public class WaveManager : MonoBehaviour
         StartNextWave();
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            StartNextWave();
+            currentWave++;
+        }
+    }
+
     public void StartNextWave()
     {
         //Debug.Log("Oleada: " + currentWave);
@@ -131,4 +140,6 @@ public class WaveManager : MonoBehaviour
             StartNextWave();
         }
     }
+
+
 }

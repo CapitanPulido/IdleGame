@@ -106,7 +106,9 @@ public class Mejoras : MonoBehaviour
             VT.ActiveObtXp();
             VT.VidaExtra1();
             ElegirMejora.SetActive(false);
-         
+
+        mejorasDesbloqueadas.Remove("VidaExtra");
+
     }
 
     public void ActiveEscudo()
@@ -152,14 +154,14 @@ public class Mejoras : MonoBehaviour
 
     public void ZEFMT()
     {
-        zef.AumentarTamaño(0.10f);
+        zef.AumentarTamaño(1.10f);
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
 
     }
     public void ZEFMC()
     {
-        zef.ReducirCooldown(0.25f);
+        zef.ReducirCooldown(0.10f);
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
 
@@ -181,7 +183,7 @@ public class Mejoras : MonoBehaviour
     }
     public void ZEHMT()
     {
-        zeh.AumentarTamaño(0.10f);
+        zeh.AumentarTamaño(1.10f);
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
 

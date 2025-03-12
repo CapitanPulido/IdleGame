@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class VidaTorreta : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class VidaTorreta : MonoBehaviour
     public Mejoras Mejora;
     public bool VidaExtra = false;
 
+    
     void Start()
     {
         // Guardar los valores iniciales
@@ -37,6 +39,7 @@ public class VidaTorreta : MonoBehaviour
         initialExperienceToNextLevel = experienceToNextLevel;
         initialHealth = MaxHealth;
 
+        CurrentHealth = MaxHealth;
         // Inicializar los valores
         ResetStats();
         Vida.maxValue = MaxHealth; Vida.minValue = MinHealth;
@@ -65,9 +68,9 @@ public class VidaTorreta : MonoBehaviour
             Mejora.AgregarAcciones();
         }
 
-        if (CurrentHealth >= MinHealth && VidaExtra == false)
+        if (CurrentHealth <= MinHealth && VidaExtra == false)
         {
-
+            SceneManager.LoadScene("GameOver");
         }
 
         else if (CurrentHealth >= MinHealth && VidaExtra == true)
@@ -132,8 +135,13 @@ public class VidaTorreta : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemigo"))
         {
-            CurrentHealth -= 5;
+            StartCoroutine(Dañarse());
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        StopAllCoroutines();
     }
 
     public void MejoraVida(float porcentaje)
@@ -145,6 +153,11 @@ public class VidaTorreta : MonoBehaviour
         Debug.Log("Nueva Vida");
     }
 
-
+    public IEnumerator Dañarse()
+    {
+        CurrentHealth -= 5;
+        yield return new WaitForSeconds(5);
+        StartCoroutine(Dañarse());
+    }
 }
 

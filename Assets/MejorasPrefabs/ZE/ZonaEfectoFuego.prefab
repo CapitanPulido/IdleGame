@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1647383707861471270}
   m_Layer: 0
   m_Name: ZonaEfectoFuego
-  m_TagString: ZE
+  m_TagString: ZEF
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,5 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801af4129578fd6458ed3af5d616d3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "Da\xF1o": 3
+  "Da\xF1o": 20
   CooldownZE: 0
