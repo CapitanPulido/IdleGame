@@ -14,6 +14,7 @@ public class Mejoras : MonoBehaviour
     public ZEV zev;
 
     public Escudo escudo;
+    public FireBall fireball;
 
     public Button[] botones;
     //public RawImage[] imagenes;
@@ -46,11 +47,13 @@ public class Mejoras : MonoBehaviour
         mejorasDesbloqueadas.Add("Vida");
         mejorasDesbloqueadas.Add("Familiar");
         mejorasDesbloqueadas.Add("ActiveEscudo");
+        mejorasDesbloqueadas.Add("FireBall");
     }
     void Start()
     {
         torreta = GameObject.FindGameObjectWithTag("Player").GetComponent<Torreta>();
         escudo = GameObject.FindGameObjectWithTag("Escudo").GetComponent<Escudo>();
+        
         zef = GameObject.FindGameObjectWithTag("ZEF").GetComponent<ZEF>();
         zeh = GameObject.FindGameObjectWithTag("ZEH").GetComponent<ZEH>();
         zev = GameObject.FindGameObjectWithTag("ZEV").GetComponent<ZEV>();
@@ -234,7 +237,22 @@ public class Mejoras : MonoBehaviour
         
     }
 
+    public void FireBall()
+    {
+        torreta.ActivarFireball();
+        ElegirMejora.SetActive(false);
+        VT.ActiveObtXp();
 
+        mejorasDesbloqueadas.Remove("FireBall");
+        mejorasDesbloqueadas.Add("FireballT");
+    }
+
+    public void  TamañoFireball()
+    {
+        fireball.Escala();
+        ElegirMejora.SetActive(false);
+        VT.ActiveObtXp();
+    }
 
     public void AgregarAcciones()
     {
@@ -353,6 +371,14 @@ public class Mejoras : MonoBehaviour
             acciones.Add(Familiar);
             nombres.Add("Familiar");
         }
+
+        if (mejorasDesbloqueadas.Contains("FireballT"))
+        {
+            acciones.Add(TamañoFireball);
+            nombres.Add("FireBallT");
+        }
+
+
 
         // Crear una lista de índices que se seleccionarán aleatoriamente
         List<int> indicesDisponibles = new List<int>();

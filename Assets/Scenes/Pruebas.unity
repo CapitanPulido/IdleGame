@@ -3320,6 +3320,7 @@ MonoBehaviour:
   zeh: {fileID: 1866542904}
   zev: {fileID: 558368516}
   escudo: {fileID: 256674685}
+  fireball: {fileID: -1213435823968135804, guid: 362b8c374b4856e4dae9a6fabba1c3fb, type: 3}
   botones:
   - {fileID: 422443069}
   - {fileID: 1827284383}

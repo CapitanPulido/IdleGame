@@ -3,34 +3,33 @@ using UnityEngine;
 
 public class Torreta : MonoBehaviour
 {
-    public Transform cañon; // Referencia al cañón
-    public GameObject proyectilPrefab; // Prefab del proyectil
-    public float rango = 5f; // Rango de la torreta
-    public float velocidadRotacion = 5f; // Velocidad de rotación
-    public float tiempoEntreDisparos = 1f; // Tiempo inicial entre disparos
+    public Transform cañon;
+    public GameObject proyectilComun; // Proyectil normal
+    public GameObject proyectilEspecial; // Proyectil que se dispara ocasionalmente
+    public float rango = 5f;
+    public float velocidadRotacion = 5f;
+    public float tiempoEntreDisparos = 1f;
+    public float tiempoCambioProyectil = 5f; // Cada cuánto se dispara un proyectil especial
     public float DañoHaciaEnemigos;
     public float DañoFamiliar;
-    public List<Sprite> sprites = new List<Sprite>();
-
-    private SpriteRenderer spriteRenderer;
 
     private float tiempoDisparoRestante = 0f;
+    private float tiempoCambioRestante;
+    private bool usarProyectilEspecial = false;
+    public bool FireballActive = false;
 
     private void Start()
     {
-          spriteRenderer = GetComponent<SpriteRenderer>();
+        tiempoCambioRestante = tiempoCambioProyectil;
     }
 
     void Update()
     {
-        // Encuentra al enemigo más cercano
         GameObject enemigoCercano = BuscarEnemigoCercano();
         if (enemigoCercano != null)
         {
-            // Apunta al enemigo
             ApuntarAlEnemigo(enemigoCercano);
 
-            // Dispara si es el momento adecuado
             tiempoDisparoRestante -= Time.deltaTime;
             if (tiempoDisparoRestante <= 0f)
             {
@@ -39,13 +38,13 @@ public class Torreta : MonoBehaviour
             }
         }
 
-        // Presiona Escape para mejorar la velocidad de disparo
-        if (Input.GetKeyUp(KeyCode.Escape))
+        // Cuenta regresiva para disparar un proyectil especial
+        tiempoCambioRestante -= Time.deltaTime;
+        if (FireballActive && tiempoCambioRestante <= 0f)
         {
-            MejoraVelocidad(25f); // Disminuye el tiempo entre disparos un 25%
+            usarProyectilEspecial = true;
+            tiempoCambioRestante = tiempoCambioProyectil;
         }
-
-
     }
 
     GameObject BuscarEnemigoCercano()
@@ -72,21 +71,26 @@ public class Torreta : MonoBehaviour
         float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
         Quaternion rotacionObjetivo = Quaternion.AngleAxis(angulo, Vector3.forward);
         cañon.rotation = Quaternion.Lerp(cañon.rotation, rotacionObjetivo, velocidadRotacion * Time.deltaTime);
-      
     }
 
     void Disparar()
     {
-        // Instancia el proyectil
-        Instantiate(proyectilPrefab, cañon.position, cañon.rotation);
+        if (usarProyectilEspecial && proyectilEspecial != null)
+        {
+            Instantiate(proyectilEspecial, cañon.position, cañon.rotation);
+            usarProyectilEspecial = false; // Después del disparo especial, vuelve al común
+        }
+        else
+        {
+            Instantiate(proyectilComun, cañon.position, cañon.rotation);
+        }
     }
 
-    private void OnDrawGizmosSelected()
+    public void ActivarFireball()
     {
-        // Dibuja el rango de la torreta en la escena
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, rango);
+        FireballActive = true;
     }
+
 
     public void MejoraVelocidad(float porcentaje)
     {
@@ -103,7 +107,7 @@ public class Torreta : MonoBehaviour
         Debug.Log("Nueva velocidad de disparo: " + tiempoEntreDisparos);
     }
 
-    
+
 
     public void MejoraRango(float porcentaje)
     {
@@ -122,4 +126,5 @@ public class Torreta : MonoBehaviour
 
         Debug.Log("Nuevo Daño");
     }
+
 }
