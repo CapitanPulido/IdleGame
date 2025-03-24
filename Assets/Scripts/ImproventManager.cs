@@ -9,15 +9,15 @@ public class ImprovementManager : MonoBehaviour
     public GameObject familiarPrefab; // Prefab del familiar
     private GameObject currentFamiliar; // Referencia al familiar actual
 
-    void OnEnable()
-    {
-        VidaTorreta.OnLevelUp += ShowImprovements;
-    }
+    //void OnEnable()
+    //{
+    //    VidaTorreta.OnLevelUp += ShowImprovements;
+    //}
 
-    void OnDisable()
-    {
-        VidaTorreta.OnLevelUp -= ShowImprovements;
-    }
+    //void OnDisable()
+    //{
+    //    VidaTorreta.OnLevelUp -= ShowImprovements;
+    //}
 
     void ShowImprovements(int newLevel)
     {

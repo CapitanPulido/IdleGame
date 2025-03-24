@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3718584762920222682}
   - component: {fileID: 2177839188117919671}
   - component: {fileID: 1929953703980735175}
+  - component: {fileID: 8938297349204394433}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Familiar
@@ -120,6 +121,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!95 &8938297349204394433
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809578387882092173}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4374354108480922130
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3932541383494789122}
   - component: {fileID: 1840582825838765893}
+  - component: {fileID: 4540279809453847045}
   m_Layer: 0
   m_Name: Familiar
   m_TagString: Untagged
@@ -174,3 +197,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4540279809453847045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4374354108480922130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8cbca31b1b4b45b86f4096d2399f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+  dragon: {fileID: 4374354108480922130}

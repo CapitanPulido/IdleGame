@@ -1,48 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
-    // Referencias a los diferentes tipos de enemigos
     public List<GameObject> fastEnemies;
     public List<GameObject> mediumEnemies;
     public List<GameObject> slowEnemies;
-    public List<GameObject> bosses; // Ordenados del más fácil al más difícil
+    public List<GameObject> bosses;
 
-    public Transform[] spawnPoints; // Puntos de aparición de enemigos
+    public Transform[] spawnPoints;
+    public Collider2D battleZone;
+    public TMP_Text enemyCounterText;
 
-    private int currentWave = 1; // Contador de oleadas
+    private int currentWave = 1;
     private bool isSpawning = false;
     private int enemiesRemainingInWave;
+    private int currentEnemyCount = 0;
 
+    private float waveStartTime;
     public delegate void WaveStarted(int waveIndex);
     public static event WaveStarted OnWaveStarted;
 
     private void Start()
     {
+        UpdateEnemyCount();
         StartNextWave();
     }
 
-    public void Update()
+    private void Update()
     {
         if (Input.GetKeyUp(KeyCode.O))
         {
             StartNextWave();
-            currentWave++;
+        }
+
+        // Verificar si la oleada puede terminar
+        if (currentEnemyCount <= 0)
+        {
+            StartNextWave();
         }
     }
 
-    public void StartNextWave()
+    private void StartNextWave()
     {
-        //Debug.Log("Oleada: " + currentWave);
+        if (isSpawning) return;
 
-        if (OnWaveStarted != null)
-        {
-            OnWaveStarted.Invoke(currentWave);
-        }
+        isSpawning = true;
+        waveStartTime = Time.time; // Registrar el tiempo de inicio de la oleada
+        OnWaveStarted?.Invoke(currentWave);
 
-        // Revisar si es oleada de jefe
         if (currentWave % 10 == 0)
         {
             StartCoroutine(SpawnBossWave());
@@ -51,39 +59,43 @@ public class WaveManager : MonoBehaviour
         {
             StartCoroutine(SpawnRegularWave());
         }
+        currentWave++;
     }
 
     private IEnumerator SpawnRegularWave()
     {
-        isSpawning = true;
-
-        // Calcular la cantidad total de enemigos basados en la oleada actual
         int totalEnemies = Mathf.RoundToInt(currentWave * 1.5f) + 3;
         enemiesRemainingInWave = totalEnemies;
 
         while (totalEnemies > 0)
         {
-            // Determinar el tipo de enemigo basado en la oleada actual
             GameObject enemyToSpawn = GetEnemyForCurrentWave();
-            SpawnEnemy(enemyToSpawn);
-            totalEnemies--;
+            if (enemyToSpawn != null)
+            {
+                SpawnEnemy(enemyToSpawn);
+                totalEnemies--;
+            }
 
-            yield return new WaitForSeconds(1f / (currentWave * 0.2f + 1)); // Aumenta la velocidad de spawn con el progreso de oleadas
+            yield return new WaitForSeconds(1f / (currentWave * 0.2f + 1));
         }
 
         isSpawning = false;
     }
 
-    private IEnumerator SpawnBossWave()
+    public  IEnumerator SpawnBossWave()
     {
-        isSpawning = true;
-
-        // Determinar el jefe según la oleada actual
         int bossIndex = Mathf.Min(currentWave / 10 - 1, bosses.Count - 1);
         GameObject bossToSpawn = bosses[bossIndex];
 
-        SpawnEnemy(bossToSpawn);
-        enemiesRemainingInWave = 1;
+        if (bossToSpawn != null)
+        {
+            SpawnEnemy(bossToSpawn);
+            enemiesRemainingInWave = 1;
+        }
+        else
+        {
+            enemiesRemainingInWave = 0;
+        }
 
         isSpawning = false;
         yield return null;
@@ -93,53 +105,51 @@ public class WaveManager : MonoBehaviour
     {
         int waveLevel = currentWave;
         int fastChance = Mathf.Clamp(60 - waveLevel, 10, 40);
-        int mediumChance = Mathf.Clamp(40 + waveLevel / 2, 20, 50);
-        int slowChance = Mathf.Clamp(0 + waveLevel / 1, 2, 3);
+        int mediumChance = Mathf.Clamp(25 + waveLevel / 2, 20, 50);
+        int slowChance = Mathf.Clamp(15 + waveLevel / 1, 2, 3);
 
         int randomValue = Random.Range(0, 100);
 
-        // Verifica si ya se alcanzó la oleada necesaria para los fastEnemies
         if (waveLevel > 10 && randomValue < fastChance && fastEnemies.Count > 0)
         {
             return fastEnemies[Random.Range(0, fastEnemies.Count)];
         }
 
-        // Verifica si ya se alcanzó la oleada necesaria para los slowEnemies
         if (waveLevel > 20 && randomValue < fastChance + mediumChance + slowChance && slowEnemies.Count > 0)
         {
             return slowEnemies[Random.Range(0, slowEnemies.Count)];
         }
 
-        // Si no cumple ninguna condición anterior, solo puede aparecer un mediumEnemy
         if (mediumEnemies.Count > 0)
         {
             return mediumEnemies[Random.Range(0, mediumEnemies.Count)];
         }
 
-        // Por defecto, devuelve null (aunque esto no debería ocurrir si las listas están bien configuradas)
-        //Debug.LogWarning("No hay enemigos disponibles para generar.");
         return null;
     }
-    
 
     private void SpawnEnemy(GameObject enemyPrefab)
     {
+        if (enemyPrefab == null || spawnPoints.Length == 0) return;
+
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-        //Debug.Log("Enemigo generado: " + enemyPrefab.name);
+        currentEnemyCount++; // Aumentar el contador al generar un enemigo
+        UpdateEnemyCount();
     }
 
     public void OnEnemyDefeated()
     {
         enemiesRemainingInWave--;
-
-        if (enemiesRemainingInWave <= 0 && !isSpawning)
-        {
-            //Debug.Log("Oleada " + currentWave + " completada.");
-            currentWave++;
-            StartNextWave();
-        }
+        currentEnemyCount--; // Reducir el contador cuando un enemigo muere
+        UpdateEnemyCount();
     }
 
-
+    private void UpdateEnemyCount()
+    {
+        if (enemyCounterText != null)
+        {
+            enemyCounterText.text = "Enemigos en juego: " + currentEnemyCount;
+        }
+    }
 }

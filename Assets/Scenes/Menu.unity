@@ -789,7 +789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1311642064796618101, guid: 4a86e205c22ecb846a56297ff972aecb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2907690426893967008, guid: 4a86e205c22ecb846a56297ff972aecb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -838,6 +838,14 @@ PrefabInstance:
     - target: {fileID: 6665355244094952582, guid: 4a86e205c22ecb846a56297ff972aecb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582184349357295128, guid: 4a86e205c22ecb846a56297ff972aecb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -417
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582184349357295128, guid: 4a86e205c22ecb846a56297ff972aecb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -840
       objectReference: {fileID: 0}
     - target: {fileID: 9045143431593204987, guid: 4a86e205c22ecb846a56297ff972aecb, type: 3}
       propertyPath: m_Pivot.x
@@ -979,7 +987,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 2044}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1047,6 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce709cd56bc57124d9b608e0dce1bf35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  opciones: {fileID: 377235464}
 --- !u!1 &1190190661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1299,7 @@ RectTransform:
   m_GameObject: {fileID: 2123642334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.7323, y: 2.7323, z: 2.7323}
+  m_LocalScale: {x: 3.2493095, y: 3.2493095, z: 3.2493095}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 964002603}
@@ -1313,7 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.7373996, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1387,6 +1396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio
       objectReference: {fileID: 0}
+    - target: {fileID: 6150359539275008036, guid: 19ac261d1ac347a4880012ff505d276c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ce763fee3462c66478d03ece001e5678, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1400,6 +1413,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4975875305721985444, guid: a347e8a1592fa4547a6c85dcc4171e4d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8430404625362377668, guid: a347e8a1592fa4547a6c85dcc4171e4d, type: 3}
       propertyPath: m_Name
       value: Audio (1)

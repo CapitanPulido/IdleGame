@@ -17,6 +17,7 @@ public class Torreta : MonoBehaviour
     private float tiempoCambioRestante;
     private bool usarProyectilEspecial = false;
     public bool FireballActive = false;
+    public AudioSource shoot;
 
     private void Start()
     {
@@ -84,6 +85,8 @@ public class Torreta : MonoBehaviour
         {
             Instantiate(proyectilComun, cañon.position, cañon.rotation);
         }
+
+        shoot.Play();
     }
 
     public void ActivarFireball()

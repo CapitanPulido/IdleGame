@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class mENU : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public GameObject opciones;
+
+    public void Start()
+    {
+        opciones.SetActive(false);
+    }
     public void Jugar()
     {
         SceneManager.LoadScene("SampleScene");
@@ -14,5 +20,15 @@ public class mENU : MonoBehaviour
     public void Opciones()
     {
         SceneManager.LoadScene("Rick");
+    }
+
+    public void Opciones2()
+    {
+        opciones.SetActive(true);
+    }    
+
+    public void Return()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

@@ -18,7 +18,8 @@ public class VidaTorreta : MonoBehaviour
     public Slider Vida;
 
     public delegate void LevelUpAction(int newLevel);
-    public static event LevelUpAction OnLevelUp;
+
+    public AudioSource mejora;
 
     private int initialLevel;
     private float initialExperience;
@@ -48,24 +49,25 @@ public class VidaTorreta : MonoBehaviour
 
     void Update()
     {
-       
+
         Xp.value = currentExperience;
         Vida.value = CurrentHealth;
-       if( ObtXp == true ) 
+        if (ObtXp == true)
         {
-            currentExperience += (2 * Time.deltaTime);
+            currentExperience += (3 * Time.deltaTime);
         }
 
-        if(currentExperience >= 100)
+        if (currentExperience >= 100)
         {
             ObtXp = false;
             currentExperience = 0;
             Xp.value = 0;
             currentLevel += 1;
-            
-            ElegirMejora.SetActive(true);   
 
+            ElegirMejora.SetActive(true);
+            Time.timeScale = 0;
             Mejora.AgregarAcciones();
+            mejora.Play();
         }
 
         if (CurrentHealth <= MinHealth && VidaExtra == false)
@@ -77,6 +79,16 @@ public class VidaTorreta : MonoBehaviour
         {
             CurrentHealth = MaxHealth;
             VidaExtra = false;
+        }
+
+        if (CurrentHealth < MaxHealth)
+        {
+            CurrentHealth += Time.deltaTime;    
+        }
+
+        if (CurrentHealth > MaxHealth)
+        {
+            CurrentHealth = MaxHealth;
         }
     }
 
@@ -126,10 +138,7 @@ public class VidaTorreta : MonoBehaviour
         Debug.Log("Valores restablecidos");
     }
 
-    void OnDestroy()
-    {
-        OnLevelUp = null; // Evitar referencias nulas
-    }
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -156,7 +165,7 @@ public class VidaTorreta : MonoBehaviour
     public IEnumerator Dañarse()
     {
         CurrentHealth -= 5;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         StartCoroutine(Dañarse());
     }
 }

@@ -16,12 +16,17 @@ public class Enemy : MonoBehaviour
     public float DT;
     public float DF;
 
+    public void Awake()
+    {
+        Torreta = GameObject.FindGameObjectWithTag("Player").GetComponent<Torreta>();
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
         ActualHealth = MaxHealth;
-        Torreta = GameObject.FindGameObjectWithTag("Player").GetComponent<Torreta>();
+        
     }
 
     // Update is called once per frame
@@ -30,6 +35,7 @@ public class Enemy : MonoBehaviour
         if (ActualHealth <= 0)
         {
             Destroy(gameObject);
+            Die();
         }
 
         DT = Torreta.DañoHaciaEnemigos;
@@ -75,16 +81,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-
-
-        ActualHealth -= amount;
-        if (ActualHealth <= 0)
-        {
-            Die();
-        }
-        
+        ActualHealth -= amount;        
     }
-    private void Die()
+    public void Die()
     {
         WaveManager waveManager = FindObjectOfType<WaveManager>();
         if (waveManager != null)

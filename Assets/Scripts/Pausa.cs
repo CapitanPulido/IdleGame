@@ -21,4 +21,10 @@ public class Pausa : MonoBehaviour
             isPaused = true;
         }
     }
+
+    public void Continuar()
+    {
+        Time.timeScale = 1;
+        isPaused = false;
+    }
 }

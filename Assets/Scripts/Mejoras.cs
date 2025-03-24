@@ -15,10 +15,14 @@ public class Mejoras : MonoBehaviour
 
     public Escudo escudo;
     public FireBall fireball;
+    public TimeSpeedButton timespeed;
+    public AudioSource Mejora;
 
     public Button[] botones;
     //public RawImage[] imagenes;
     public TextMeshProUGUI[] textos;
+
+    public Dragon dragon;
 
     
     private List<string> nombres = new List<string>();
@@ -52,7 +56,7 @@ public class Mejoras : MonoBehaviour
     void Start()
     {
         torreta = GameObject.FindGameObjectWithTag("Player").GetComponent<Torreta>();
-        escudo = GameObject.FindGameObjectWithTag("Escudo").GetComponent<Escudo>();
+        //escudo = GameObject.FindGameObjectWithTag("Escudo").GetComponent<Escudo>();
         
         zef = GameObject.FindGameObjectWithTag("ZEF").GetComponent<ZEF>();
         zeh = GameObject.FindGameObjectWithTag("ZEH").GetComponent<ZEH>();
@@ -79,6 +83,8 @@ public class Mejoras : MonoBehaviour
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
         torreta.MejoraVelocidad(0.25f);
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
         
     }
 
@@ -87,6 +93,8 @@ public class Mejoras : MonoBehaviour
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
         torreta.MejoraDaño(0.25f);
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
     }
 
     public void Rango()
@@ -94,6 +102,8 @@ public class Mejoras : MonoBehaviour
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
         torreta.MejoraRango(0.25f);
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
     }
 
     public void Vida()
@@ -101,6 +111,8 @@ public class Mejoras : MonoBehaviour
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
         VT.MejoraVida(0.25f);
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
     }
 
     public void VidaExtra()
@@ -111,6 +123,8 @@ public class Mejoras : MonoBehaviour
             ElegirMejora.SetActive(false);
 
         mejorasDesbloqueadas.Remove("VidaExtra");
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
 
     }
 
@@ -122,6 +136,8 @@ public class Mejoras : MonoBehaviour
 
         mejorasDesbloqueadas.Add("CooldownEscudo");
         mejorasDesbloqueadas.Add("AumentarVidaEscudo");
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
     }
 
     public void CooldownEscudo()
@@ -129,6 +145,8 @@ public class Mejoras : MonoBehaviour
         ReducirCooldown(0.25f);
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
     }
 
     public void AumentarVidaEscudo()
@@ -136,6 +154,8 @@ public class Mejoras : MonoBehaviour
         escudo.AumentarVida(0.25f);
         VT.ActiveObtXp();
         ElegirMejora.SetActive(false);
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
 
     }
 
@@ -152,7 +172,9 @@ public class Mejoras : MonoBehaviour
             // Desbloquear las mejoras ZEFMT y ZEFMC
             mejorasDesbloqueadas.Add("ZEFMT");
             mejorasDesbloqueadas.Add("ZEFMC");
-        
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
+
     }
 
     public void ZEFMT()
@@ -160,6 +182,8 @@ public class Mejoras : MonoBehaviour
         zef.AumentarTamaño(1.10f);
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
 
     }
     public void ZEFMC()
@@ -167,6 +191,8 @@ public class Mejoras : MonoBehaviour
         zef.ReducirCooldown(0.10f);
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
 
     }
     public void ZEH()
@@ -182,13 +208,16 @@ public class Mejoras : MonoBehaviour
             // Desbloquear las mejoras ZEHMT y ZEHMC
             mejorasDesbloqueadas.Add("ZEHMT");
             mejorasDesbloqueadas.Add("ZEHMC");
-        
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
+
     }
     public void ZEHMT()
     {
         zeh.AumentarTamaño(1.10f);
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
+        Time.timeScale = timespeed.TimeActual;
 
     }
     public void ZEHMC()
@@ -196,6 +225,8 @@ public class Mejoras : MonoBehaviour
         zeh.ReducirCooldown(0.25f);
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
 
     }
     public void ZEV()
@@ -211,13 +242,17 @@ public class Mejoras : MonoBehaviour
             // Desbloquear las mejoras ZEVMT y ZEVMC
             mejorasDesbloqueadas.Add("ZEVMT");
             mejorasDesbloqueadas.Add("ZEVMC");
-        
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
+
     }
     public void ZEVMT()
     {
         zev.AumentarTamaño(0.10f);
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
 
     }
     public void ZEVMC()
@@ -225,16 +260,22 @@ public class Mejoras : MonoBehaviour
         zev.ReducirCooldown(0.25f);
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
 
     }
     public void Familiar()
     {
-        
-        SpawnFamiliar();
+
+        dragon.Active();
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
-            
-        
+
+        mejorasDesbloqueadas.Remove("Familiar");
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
+
+
     }
 
     public void FireBall()
@@ -245,6 +286,8 @@ public class Mejoras : MonoBehaviour
 
         mejorasDesbloqueadas.Remove("FireBall");
         mejorasDesbloqueadas.Add("FireballT");
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
     }
 
     public void  TamañoFireball()
@@ -252,6 +295,8 @@ public class Mejoras : MonoBehaviour
         fireball.Escala();
         ElegirMejora.SetActive(false);
         VT.ActiveObtXp();
+        Time.timeScale = timespeed.TimeActual;
+        Mejora.Play();
     }
 
     public void AgregarAcciones()
@@ -370,6 +415,12 @@ public class Mejoras : MonoBehaviour
         {
             acciones.Add(Familiar);
             nombres.Add("Familiar");
+        }
+
+        if (mejorasDesbloqueadas.Contains("FireBall"))
+        {
+            acciones.Add(FireBall);
+            nombres.Add("FireBall");
         }
 
         if (mejorasDesbloqueadas.Contains("FireballT"))
