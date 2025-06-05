@@ -20,4 +20,4 @@ Idle Magic es un videojuego para celular Eagle View del genero idle game donde a
 
 1. Clona el repositorio:
 ```bash
-https://github.com/CheeseBread5/Heroes-Granja/tree/5bd71808fff20a00d8e41bdd0c920bbdf7a0fc46
+https://github.com/CapitanPulido/IDLE/tree/7afb228921f4b0701846c3538b20a1229eeac29f
