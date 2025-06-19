@@ -22,7 +22,7 @@ Idle Magic es un videojuego para celular Eagle View del genero idle game donde a
   <img src="./Assets/GitHub/MP.png" width="400"/>
   <img src="./Assets/GitHub/GAME.png" width="400"/>
   <img src="./Assets/GitHub/MD.png" width="400"/>
-  <img src="./Assets/GitHub/GIF.gif" width="150"/>
+  <img src="./Assets/GitHub/GIF.gif" width="1200"/>
 </p>
 
 ##  Cómo ejecutar el proyecto
